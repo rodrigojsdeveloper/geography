@@ -1,7 +1,4 @@
-interface ILink {
-  href: string;
-  children: React.ReactNode;
-}
+import { ILink } from "../interfaces";
 
 const Link = ({ href, children }: ILink) => {
   return (
