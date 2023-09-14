@@ -34,6 +34,9 @@ export default {
       },
       brightness: {
         "1.3": "1.3"
+      },
+      borderRadius: {
+        "def": "4px"
       }
     },
   },

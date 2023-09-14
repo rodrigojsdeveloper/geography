@@ -1,17 +1,9 @@
 import { AiOutlineHeart } from "react-icons/ai";
-import { useParams } from "react-router-dom";
 import { ICountry } from "../interfaces";
-import { Link } from "react-router-dom";
 
-const Card = ({ country }: ICountry) => {
-  let { country_name } = useParams();
-  country_name = country.name.common;
-
+const CountryDetails = ({ country }: ICountry) => {
   return (
-    <Link
-      to={`/country/${country_name}`}
-      className="w-full max-w-406 h-96 flex bg-grey-1 border border-solid border-grey-3 mb-5 mr-5 cursor-pointer hover:brightness-1.3"
-    >
+    <div className="w-full max-w-406 h-96 flex bg-grey-1 border border-solid border-grey-3 mb-5 mr-5 cursor-pointer hover:brightness-1.3">
       <img
         src={country.flags.svg}
         alt={country.name.common}
@@ -23,14 +15,14 @@ const Card = ({ country }: ICountry) => {
           <h2 className="font-bold text-base mb-2">{country.name.common}</h2>
 
           <p className="font-bold text-xs">{country.region}</p>
-        </div>
 
-        <div className="h-fit cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
-          <AiOutlineHeart size={24} />
+          <div className="h-fit cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
+            <AiOutlineHeart size={24} />
+          </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
-export { Card };
+export { CountryDetails };

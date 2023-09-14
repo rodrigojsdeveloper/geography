@@ -1,15 +1,5 @@
-import { SubHeader } from "./components/SubHeader";
-import { Header } from "./components/Header";
-import { List } from "./components/List";
+import { AllRoutes } from "./routes";
 
-const App = () => {
-  return (
-    <div className="w-full h-full bg-grey-1 text-white-1 p-4">
-      <Header />
-      <SubHeader />
-      <List />
-    </div>
-  );
-};
+const App = () => <AllRoutes />;
 
 export { App };

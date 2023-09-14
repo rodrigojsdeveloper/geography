@@ -1,11 +1,16 @@
 import { ICountryProps, ICountryContextData, IChildren } from "../interfaces";
 import { createContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { api } from "../services/api";
 
 export const CountryContext = createContext({} as ICountryContextData);
 
 export const CountryContextProvider = ({ children }: IChildren) => {
+  const { country_name } = useParams();
+
   const [countries, setCountries] = useState<ICountryProps[]>([]);
+
+  const [country, setCountry] = useState<ICountryProps>({} as ICountryProps);
 
   const [filteredCountries, setFilteredCountries] = useState<ICountryProps[]>(
     []
@@ -21,6 +26,16 @@ export const CountryContextProvider = ({ children }: IChildren) => {
       })
       .catch((error) => console.log(error));
   }, []);
+
+  country_name?.length > 0 &&
+    useEffect(() => {
+      api
+        .get(`name/${country_name}`)
+        .then((res) => {
+          setCountry(res.data)
+        })
+        .catch((error) => console.log(error));
+    }, [country_name]);
 
   const handleSearchCountry = (name: string) => {
     setFilteredCountries(
@@ -42,6 +57,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
     <CountryContext.Provider
       value={{
         countries: filteredCountries,
+        country,
         handleSearchCountry,
         handleSelectContinents,
       }}
