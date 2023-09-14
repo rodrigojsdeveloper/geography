@@ -10,7 +10,7 @@ const Card = ({ country }: ICountry) => {
   return (
     <Link
       to={`/country/${countryName}`}
-      className="w-full max-w-406 h-96 flex bg-grey-1 border border-solid border-grey-3 mb-5 mr-5 cursor-pointer hover:brightness-1.3 max-902:max-w-none max-902:mr-0"
+      className="w-full h-96 flex bg-grey-1 border border-solid border-grey-3 cursor-pointer hover:brightness-1.3"
     >
       <img
         src={country?.flags.svg}

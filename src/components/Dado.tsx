@@ -2,7 +2,7 @@ import { IDado } from "../interfaces";
 
 const Dado = ({ title, description, Icon }: IDado) => {
   return (
-    <div className="flex items-center mb-6">
+    <div className="flex items-center">
       <Icon size={24} />
 
       <div className="w-full max-w-104 pl-1.5">

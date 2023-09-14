@@ -1,7 +1,9 @@
 import { ITitle } from "../interfaces";
 
 const Title = ({ title }: ITitle) => {
-  return <h1 className="w-full max-w-310 font-bold text-4xl">{title}</h1>;
+  return (
+    <h1 className="w-full max-w-310 font-bold text-4xl pt-8 pb-12">{title}</h1>
+  );
 };
 
 export { Title };

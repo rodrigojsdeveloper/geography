@@ -11,7 +11,7 @@ const Input = () => {
     <div className="w-full max-w-261 h-45 bg-grey-2 flex justify-between items-center max-500:mb-3.5">
       <input
         className="w-full max-w-205 bg-grey-2 p-3 outline-none placeholder:focus:text-transparent"
-        placeholder="Digite o nome do país"
+        placeholder="Enter the name of the country"
         onChange={(e) => setCountry(e.target.value)}
       />
 

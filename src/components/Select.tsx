@@ -17,14 +17,14 @@ const Select = ({ disabled }: ISelect) => {
       disabled={disabled}
     >
       <option disabled selected>
-        Filtrar por região
+        Filter by region
       </option>
-      <option value="">Todos</option>
-      <option value="South America">América do Sul</option>
-      <option value="North America">América do Norte</option>
-      <option value="Antarctica">Antártida</option>
-      <option value="Asia">Ásia</option>
-      <option value="Europe">Europa</option>
+      <option value="">All</option>
+      <option value="South America">South America</option>
+      <option value="North America">North America</option>
+      <option value="Antarctica">Antarctica</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
       <option value="Oceania">Oceania</option>
     </select>
   );

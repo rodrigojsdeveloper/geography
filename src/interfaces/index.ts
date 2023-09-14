@@ -91,8 +91,11 @@ export interface ICountryContextData {
   countries: Array<ICountryProps>;
   filteredCountries: Array<ICountryProps>;
   favorites: Array<ICountryProps>;
+  setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
   handleSearchCountry: (name: string) => void;
   handleSelectContinents: (continent: string) => void;
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface IDado {

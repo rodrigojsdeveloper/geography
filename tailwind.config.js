@@ -7,9 +7,11 @@ export default {
   theme: {
     screens: {
       "370": "370px",
+      "425": "425px",
       "500": "500px",
       "800": "800px",
-      "902": "902px",
+      "768": "768px",
+      "1024": "1024px",
     },
     extend: {
       fontFamily: {
@@ -28,13 +30,20 @@ export default {
           "1": 	"#38BFD8"
         },
         "transparent": "transparent",
+        "red": "#f04242",
+        "orange": "#f86c49",
       },
       height: {
+        "40": "40px",
         "45": "45.6px",
         "74": "74px",
+        "85": "85.6px",
         "96": "96px",
+        "140": "140px",
         "256": "256px",
         "281": "281.6px",
+        "295": "295.8px",
+        "321": "321.4px",
       },
       maxWidth: {
         "104": "104.68px",
@@ -43,8 +52,10 @@ export default {
         "205": "205.6px",
         "261": "261.6px",
         "310": "310px",
-        "406": "406.66px",
+        "480": "480px",
+        "444": "444.4px",
         "421": "421.4px",
+        "470": "470px",
         "800": "800px",
       },
       brightness: {
@@ -52,6 +63,9 @@ export default {
       },
       borderRadius: {
         "def": "4px"
+      },
+      gridAutoRows: {
+        "1fr": "minmax(96px,auto)"
       }
     },
   },
