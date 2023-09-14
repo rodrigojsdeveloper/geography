@@ -94,4 +94,6 @@ export interface ICountry {
 
 export interface ICountryContextData {
   countries: Array<ICountryProps>;
+  handleSearchCountry: (name: string) => void;
+  handleSelectContinents: (continent: string) => void;
 }

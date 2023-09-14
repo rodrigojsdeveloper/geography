@@ -1,16 +1,29 @@
+import { CountryContext } from "../contexts/country.context";
+import { ChangeEvent, useContext } from "react";
+
 const Select = () => {
+  const { handleSelectContinents } = useContext(CountryContext);
+
+  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const selectedRegion = event.target.value;
+    handleSelectContinents(selectedRegion);
+  };
+
   return (
-    <select className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer p-3">
+    <select
+      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer p-3"
+      onChange={handleSelectChange}
+    >
       <option disabled selected>
         Filtrar por região
       </option>
-      <option>Todos</option>
-      <option>África</option>
-      <option>América</option>
-      <option>Antártida</option>
-      <option>Asia</option>
-      <option>Europa</option>
-      <option>Oceania</option>
+      <option value="">Todos</option>
+      <option value="South America">América do Sul</option>
+      <option value="North America">América do Norte</option>
+      <option value="Antarctica">Antártida</option>
+      <option value="Asia">Ásia</option>
+      <option value="Europe">Europa</option>
+      <option value="Oceania">Oceania</option>
     </select>
   );
 };

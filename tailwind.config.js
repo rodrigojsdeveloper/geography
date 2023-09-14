@@ -15,8 +15,8 @@ export default {
         "white": {
           "1": "#F2F2F2"
         },
-        "red": {
-          "1": 	"#FF0000"
+        "primary-color": {
+          "1": 	"#38BFD8"
         }
       },
       height: {
