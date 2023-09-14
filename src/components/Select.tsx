@@ -1,7 +1,8 @@
 import { CountryContext } from "../contexts/country.context";
 import { ChangeEvent, useContext } from "react";
+import { ISelect } from "../interfaces";
 
-const Select = () => {
+const Select = ({ disabled }: ISelect) => {
   const { handleSelectContinents } = useContext(CountryContext);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -11,8 +12,9 @@ const Select = () => {
 
   return (
     <select
-      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer p-3"
+      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer p-3 disabled:cursor-not-allowed disabled:opacity-50"
       onChange={handleSelectChange}
+      disabled={disabled}
     >
       <option disabled selected>
         Filtrar por região

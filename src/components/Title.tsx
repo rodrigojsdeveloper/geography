@@ -1,9 +1,7 @@
-const Title = () => {
-  return (
-    <h1 className="w-full max-w-290 font-bold text-3xl">
-      Explore os países do mundo!
-    </h1>
-  );
+import { ITitle } from "../interfaces";
+
+const Title = ({ title }: ITitle) => {
+  return <h1 className="w-full max-w-310 font-bold text-4xl">{title}</h1>;
 };
 
 export { Title };

@@ -5,8 +5,9 @@ import { api } from "../services/api";
 export const CountryContext = createContext({} as ICountryContextData);
 
 export const CountryContextProvider = ({ children }: IChildren) => {
-
   const [countries, setCountries] = useState<ICountryProps[]>([]);
+
+  const [favorites, setFavorites] = useState<ICountryProps[]>([]);
 
   const [filteredCountries, setFilteredCountries] = useState<ICountryProps[]>(
     []
@@ -44,6 +45,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
       value={{
         countries,
         filteredCountries,
+        favorites,
         handleSearchCountry,
         handleSelectContinents,
       }}

@@ -2,12 +2,12 @@ import { IDado } from "../interfaces";
 
 const Dado = ({ title, description, Icon }: IDado) => {
   return (
-    <div>
-      <Icon />
+    <div className="flex items-center mb-6">
+      <Icon size={24} />
 
-      <div>
-        <h2>{title}</h2>
-        <p>{description}</p>
+      <div className="w-full max-w-104 pl-1.5">
+        <h2 className="font-bold text-xs pb-1">{title}</h2>
+        <p className="font-bold text-xs opacity-60">{description}</p>
       </div>
     </div>
   );

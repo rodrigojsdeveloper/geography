@@ -25,12 +25,7 @@ export interface ICountryProps {
   independent: boolean;
   status: string;
   unMember: boolean;
-  currencies: {
-    BRL: {
-      name: string;
-      symbol: string;
-    };
-  };
+  currencies: any;
   idd: {
     root: string;
     suffixes: string[];
@@ -95,6 +90,7 @@ export interface ICountry {
 export interface ICountryContextData {
   countries: Array<ICountryProps>;
   filteredCountries: Array<ICountryProps>;
+  favorites: Array<ICountryProps>;
   handleSearchCountry: (name: string) => void;
   handleSelectContinents: (continent: string) => void;
 }
@@ -102,5 +98,17 @@ export interface ICountryContextData {
 export interface IDado {
   Icon: any;
   title: string;
-  description: string;
+  description?: any;
+}
+
+export interface ITitle {
+  title: string;
+}
+
+export interface ISelect {
+  disabled?: boolean;
+}
+
+export interface IEmptyMessage {
+  message: string;
 }

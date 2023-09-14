@@ -1,4 +1,5 @@
 import { CountryContext } from "../contexts/country.context";
+import { EmptyMessage } from "./EmptyMessage";
 import { useContext } from "react";
 import { Card } from "./Card";
 
@@ -7,9 +8,13 @@ const List = () => {
 
   return (
     <menu className="w-full max-w-screen-xl flex justify-center flex-wrap m-auto">
-      {filteredCountries.map((country) => (
-        <Card country={country} key={country.name.common} />
-      ))}
+      {filteredCountries.length > 0 ? (
+        filteredCountries.map((country) => (
+          <Card country={country} key={country.name.common} />
+        ))
+      ) : (
+        <EmptyMessage message="Nenhum país foi encontrado!" />
+      )}
     </menu>
   );
 };

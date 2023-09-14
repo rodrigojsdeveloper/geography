@@ -8,7 +8,7 @@ const Input = () => {
   const [country, setCountry] = useState<string>("");
 
   return (
-    <div className="w-full max-w-261 h-45 bg-grey-2 flex justify-between items-center">
+    <div className="w-full max-w-261 h-45 bg-grey-2 flex justify-between items-center max-500:mb-3.5">
       <input
         className="w-full max-w-205 bg-grey-2 p-3 outline-none placeholder:focus:text-transparent"
         placeholder="Digite o nome do país"
