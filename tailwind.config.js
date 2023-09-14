@@ -17,12 +17,15 @@ export default {
         },
         "primary-color": {
           "1": 	"#38BFD8"
-        }
+        },
+        "transparent": "transparent",
       },
       height: {
         "45": "45.6px",
         "74": "74px",
         "96": "96px",
+        "256": "256px",
+        "281": "281.6px",
       },
       maxWidth: {
         "110": "110px",
@@ -31,6 +34,8 @@ export default {
         "290": "290px",
         "261": "261.6px",
         "406": "406.66px",
+        "421": "421.4px",
+        "800": "800px",
       },
       brightness: {
         "1.3": "1.3"

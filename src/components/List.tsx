@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { Card } from "./Card";
 
 const List = () => {
-  const { countries } = useContext(CountryContext);
+  const { filteredCountries } = useContext(CountryContext);
 
   return (
     <menu className="w-full max-w-screen-xl flex justify-center flex-wrap m-auto">
-      {countries.map((country) => (
+      {filteredCountries.map((country) => (
         <Card country={country} key={country.name.common} />
       ))}
     </menu>

@@ -3,7 +3,7 @@ import { IChildren } from "../interfaces";
 
 const Layout = ({ children }: IChildren) => {
   return (
-    <div className="w-full h-screen bg-grey-1 text-white-1 p-4">
+    <div className="w-full min-h-screen bg-grey-1 text-white-1 p-4">
       <Header />
       {children}
     </div>

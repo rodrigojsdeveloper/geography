@@ -89,12 +89,18 @@ export interface ICountryProps {
 }
 
 export interface ICountry {
-  country: ICountryProps;
+  country?: ICountryProps;
 }
 
 export interface ICountryContextData {
   countries: Array<ICountryProps>;
-  country: ICountryProps;
+  filteredCountries: Array<ICountryProps>;
   handleSearchCountry: (name: string) => void;
   handleSelectContinents: (continent: string) => void;
+}
+
+export interface IDado {
+  Icon: any;
+  title: string;
+  description: string;
 }
