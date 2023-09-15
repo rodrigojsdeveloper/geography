@@ -81,6 +81,7 @@ export interface ICountryProps {
     format: string;
     regex: string;
   };
+  favorite: boolean;
 }
 
 export interface ICountry {
@@ -94,6 +95,7 @@ export interface ICountryContextData {
   setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
   handleSearchCountry: (name: string) => void;
   handleSelectContinents: (continent: string) => void;
+  handleSelectContinentsFavorites: (continent: string) => void;
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
 }

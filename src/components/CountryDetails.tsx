@@ -32,8 +32,8 @@ const CountryDetails = ({ country }: ICountry) => {
           </div>
         </div>
 
-        <div className="w-full flex justify-between max-370:flex-col">
-          <div>
+        <section className="w-full flex justify-between max-370:flex-col gap-5">
+          <div className="grid gap-5">
             <Dado
               Icon={GoHome}
               title="Capital"
@@ -51,7 +51,7 @@ const CountryDetails = ({ country }: ICountry) => {
             />
           </div>
 
-          <div>
+          <div className="grid gap-5">
             <Dado
               Icon={PiCoinsBold}
               title="Official currency"
@@ -68,7 +68,7 @@ const CountryDetails = ({ country }: ICountry) => {
               description={country?.independent ? "Yes" : "No"}
             />
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

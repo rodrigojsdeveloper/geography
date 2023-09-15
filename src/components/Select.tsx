@@ -3,11 +3,13 @@ import { ChangeEvent, useContext } from "react";
 import { ISelect } from "../interfaces";
 
 const Select = ({ disabled }: ISelect) => {
-  const { handleSelectContinents } = useContext(CountryContext);
+  const { handleSelectContinents, handleSelectContinentsFavorites } =
+    useContext(CountryContext);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedRegion = event.target.value;
     handleSelectContinents(selectedRegion);
+    handleSelectContinentsFavorites(selectedRegion);
   };
 
   return (

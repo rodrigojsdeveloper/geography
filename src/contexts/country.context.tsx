@@ -16,6 +16,20 @@ export const CountryContextProvider = ({ children }: IChildren) => {
   );
 
   useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+
+    if (storedFavorites) {
+      const favoriteCountryNames = JSON.parse(storedFavorites);
+
+      const favoriteCountries = countries.filter((country) =>
+        favoriteCountryNames.includes(country.name.common)
+      );
+
+      setFavorites(favoriteCountries);
+    }
+  }, [countries]);
+
+  useEffect(() => {
     api
       .get("all")
       .then((res) => {
@@ -42,6 +56,14 @@ export const CountryContextProvider = ({ children }: IChildren) => {
     );
   };
 
+  const handleSelectContinentsFavorites = (continent: string) => {
+    setFilteredCountries(
+      favorites.filter((country) =>
+        country.continents[0].toLowerCase().includes(continent.toLowerCase())
+      )
+    );
+  };
+
   return (
     <CountryContext.Provider
       value={{
@@ -51,6 +73,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         setFavorites,
         handleSearchCountry,
         handleSelectContinents,
+        handleSelectContinentsFavorites,
         count,
         setCount,
       }}

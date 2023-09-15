@@ -4,7 +4,7 @@ const Link = ({ href, children }: ILink) => {
   return (
     <a
       href={href}
-      className="font-medium text-base no-underline p-2 hover:text-primary-color-1"
+      className="font-medium text-base no-underline p-3 mx-px transition-all ease-in duration-300 hover:bg-hoverLink active:bg-activeLink"
     >
       {children}
     </a>

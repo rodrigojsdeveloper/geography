@@ -1,16 +1,46 @@
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { BiWorld } from "react-icons/bi";
+import { useState } from "react";
 import { Link } from "./Link";
 
 const Header = () => {
-  return (
-    <header className="w-full max-w-screen-xl flex justify-between m-auto">
-      <BiWorld size={36} color="#38BFD8" />
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
-      <nav className="w-full max-w-310 flex justify-between">
-        <Link href="./">Explore</Link>
-        <Link href="./practice">Practice</Link>
-        <Link href="./favorites">Favorites</Link>
+  return (
+    <header className="w-full max-w-1440 flex justify-between items-center m-auto">
+      <a href="/">
+        <BiWorld size={36} color="#38BFD8" />
+      </a>
+
+      <nav className="flex justify-between max-768:hidden">
+        <Link href="/">Explore</Link>
+        <Link href="/practice">Practice</Link>
+        <Link href="/favorites">Favorites</Link>
       </nav>
+
+      <AiOutlineMenu
+        size={25}
+        className={`cursor-pointer hidden max-768:flex ${
+          openModal ? "max-768:hidden" : "max-768:flex"
+        }`}
+        onClick={() => setOpenModal(true)}
+      />
+
+      {openModal ? (
+        <div className="w-full h-236 fixed top-0 left-0 z-50 flex flex-col bg-shadow py-5">
+          <AiOutlineClose
+            size={25}
+            className="cursor-pointer absolute top-4 right-4"
+            onClick={() => setOpenModal(false)}
+          />
+
+          <nav className="w-full h-200 flex flex-col justify-between items-center mt-4">
+            <Link href="/">Explore</Link>
+            <Link href="/practice">Practice</Link>
+            <Link href="/favorites">Favorites</Link>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 };

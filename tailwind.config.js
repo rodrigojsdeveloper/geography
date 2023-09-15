@@ -32,6 +32,9 @@ export default {
         "transparent": "transparent",
         "red": "#f04242",
         "orange": "#f86c49",
+        "shadow": "#141414d3",
+        "hoverLink": "rgba(232,234,237,.08)",
+        "activeLink": "rgba(255,255, 255, 0.12)",
       },
       height: {
         "40": "40px",
@@ -40,6 +43,8 @@ export default {
         "85": "85.6px",
         "96": "96px",
         "140": "140px",
+        "200": "200px",
+        "236": "236px",
         "256": "256px",
         "281": "281.6px",
         "295": "295.8px",
@@ -57,6 +62,7 @@ export default {
         "421": "421.4px",
         "470": "470px",
         "800": "800px",
+        "1440": "1440px",
       },
       brightness: {
         "1.3": "1.3"
