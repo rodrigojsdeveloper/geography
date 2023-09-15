@@ -57,7 +57,11 @@ const Card = ({ country }: ICountry) => {
 
         <div className="h-fit cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
           {isFavorite ? (
-            <AiFillHeart size={24} onClick={toggleFavoriteStatus} />
+            <AiFillHeart
+              size={24}
+              color="#38BFD8"
+              onClick={toggleFavoriteStatus}
+            />
           ) : (
             <AiOutlineHeart size={24} onClick={toggleFavoriteStatus} />
           )}

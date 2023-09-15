@@ -28,7 +28,13 @@ const Practice = () => {
       <Title title="What is the name of this country?" />
       <main className="w-full max-w-1440 flex justify-between items-center m-auto max-1024:flex-col">
         <Country country={country} />
-        <Answer country={country} />
+        <Answer
+          country={country}
+          countries={countries}
+          setCountry={setCountry}
+          favorites={favorites}
+          setFavorites={setFavorites}
+        />
       </main>
     </Layout>
   );

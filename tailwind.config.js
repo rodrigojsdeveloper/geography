@@ -32,6 +32,7 @@ export default {
         "transparent": "transparent",
         "red": "#f04242",
         "orange": "#f86c49",
+        "green": "#4feb4f",
         "shadow": "#141414d3",
         "hoverLink": "rgba(232,234,237,.08)",
         "activeLink": "rgba(255,255, 255, 0.12)",

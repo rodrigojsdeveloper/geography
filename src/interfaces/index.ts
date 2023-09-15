@@ -88,6 +88,14 @@ export interface ICountry {
   country?: ICountryProps;
 }
 
+export interface ICountriesPractice {
+  country: ICountryProps;
+  countries: ICountryProps[];
+  favorites: ICountryProps[];
+  setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
+  setCountry: React.Dispatch<React.SetStateAction<ICountryProps>>;
+}
+
 export interface ICountryContextData {
   countries: Array<ICountryProps>;
   filteredCountries: Array<ICountryProps>;

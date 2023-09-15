@@ -1,19 +1,31 @@
 import { CountryContext } from "../contexts/country.context";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ICountriesPractice } from "../interfaces";
 import { BiSkipNextCircle } from "react-icons/bi";
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { ICountry } from "../interfaces";
 import * as yup from "yup";
 
-const Answer = ({ country }: ICountry) => {
-  const { favorites, count, setCount } = useContext(CountryContext);
+const Answer = ({
+  country,
+  countries,
+  setCountry,
+  favorites,
+  setFavorites,
+}: ICountriesPractice) => {
+  const { count, setCount } = useContext(CountryContext);
 
   const [message, setMessage] = useState<boolean>(false);
 
   const [nextCountry, setNextCountry] = useState<boolean>(false);
 
   const [nextMessage, setNextMessage] = useState<string>("");
+
+  const [rightCountry, setRightCountry] = useState<boolean>(false);
+
+  const [rightMessage, setRightMessage] = useState<string>("");
+
+  const [inputValue, setInputValue] = useState("");
 
   const schema = yup.object().shape({
     name: yup.string().required("Digite o nome do país"),
@@ -24,12 +36,7 @@ const Answer = ({ country }: ICountry) => {
   });
 
   const onSubmitFunction = (data: any) => {
-    const findFav = favorites.find(
-      (favorite) =>
-        favorite.name.common.toLowerCase() == data.name.toLowerCase()
-    );
-
-    if (!findFav) {
+    if (country?.name.common.toLowerCase() !== data.name.toLowerCase()) {
       setCount((prevCount) => {
         const updatedCount = prevCount - 1;
         if (updatedCount === 0) {
@@ -43,10 +50,15 @@ const Answer = ({ country }: ICountry) => {
 
       setMessage(true);
       setNextCountry(false);
+      setRightCountry(false);
       setNextMessage("Incorrect Answer!");
     } else {
       setMessage(false);
       setNextCountry(true);
+      setRightCountry(true);
+      setRightMessage(
+        `Right answer! The name of this country is ${country?.name?.common}`
+      );
     }
   };
 
@@ -62,7 +74,21 @@ const Answer = ({ country }: ICountry) => {
           <BiSkipNextCircle
             size={28}
             className="cursor-pointer"
-            onClick={() => console.log("aa")}
+            onClick={() => {
+              for (let i = countries.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [countries[i], countries[j]] = [countries[j], countries[i]];
+              }
+
+              setFavorites(countries);
+              setCountry(favorites[0]);
+              setCount(5);
+              setMessage(false);
+              setRightCountry(false);
+              setNextCountry(false);
+
+              setInputValue("");
+            }}
           />
         ) : (
           <BiSkipNextCircle
@@ -80,6 +106,8 @@ const Answer = ({ country }: ICountry) => {
             placeholder="Enter the answer"
             autoComplete="off"
             {...register("name")}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
           />
 
           {message ? (
@@ -89,12 +117,17 @@ const Answer = ({ country }: ICountry) => {
               {nextMessage}
             </p>
           ) : null}
+          {rightCountry && (
+            <p className="font-medium text-sm text-green pt-6">
+              {rightMessage}
+            </p>
+          )}
         </div>
 
         <button
           className="w-full h-40 bg-primary-color-1 disabled:cursor-not-allowed disabled:opacity-50"
           type="submit"
-          disabled={count === 0 ? true : false}
+          disabled={count === 0 || rightCountry === true ? true : false}
         >
           To check
         </button>
