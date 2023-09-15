@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const Card = ({ country }: ICountry) => {
   let { countryName } = useParams();
-  countryName = country?.name.common;
+  countryName = country.name.common;
 
   const { favoriteCountryNames, toggleFavoriteCountry } =
     useContext(CountryContext);
@@ -14,7 +14,7 @@ const Card = ({ country }: ICountry) => {
   const isFavorite = favoriteCountryNames.includes(countryName);
 
   const toggleFavoriteStatus = () => {
-    toggleFavoriteCountry(countryName);
+    toggleFavoriteCountry(country.name.common);
   };
 
   return (

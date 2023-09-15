@@ -85,7 +85,7 @@ export interface ICountryProps {
 }
 
 export interface ICountry {
-  country?: ICountryProps;
+  country: ICountryProps;
 }
 
 export interface ICountriesPractice {
@@ -109,6 +109,7 @@ export interface ICountryContextData {
   setCount: React.Dispatch<React.SetStateAction<number>>;
   favoriteCountryNames: string[];
   toggleFavoriteCountry: (countryName: string) => void;
+  loaded: boolean;
 }
 
 export interface IDado {

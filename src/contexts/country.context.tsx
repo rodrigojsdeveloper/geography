@@ -7,6 +7,8 @@ export const CountryContext = createContext({} as ICountryContextData);
 export const CountryContextProvider = ({ children }: IChildren) => {
   const [count, setCount] = useState<number>(5);
 
+  const [loaded, setLoaded] = useState<boolean>(false);
+
   const [countries, setCountries] = useState<ICountryProps[]>([]);
 
   const [favorites, setFavorites] = useState<ICountryProps[]>([]);
@@ -24,6 +26,8 @@ export const CountryContextProvider = ({ children }: IChildren) => {
   );
 
   useEffect(() => {
+    setLoaded(true);
+
     const storedFavorites = localStorage.getItem("favorites");
 
     if (storedFavorites) {
@@ -33,12 +37,15 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         favoriteCountryNames.includes(country.name.common)
       );
 
+      setLoaded(false);
       setFavorites(favoriteCountries);
       setFilteredFavorites(favoriteCountries);
     }
   }, [countries]);
 
   useEffect(() => {
+    setLoaded(true);
+
     api
       .get("all")
       .then((res) => {
@@ -46,7 +53,8 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         setCountries(data);
         setFilteredCountries(data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => setLoaded(false));
   }, []);
 
   const handleSearchCountry = (name: string) => {
@@ -112,6 +120,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         setCount,
         favoriteCountryNames,
         toggleFavoriteCountry,
+        loaded,
       }}
     >
       {children}

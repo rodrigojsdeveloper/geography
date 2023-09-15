@@ -12,20 +12,20 @@ const CountryDetails = ({ country }: ICountry) => {
   const { favoriteCountryNames, toggleFavoriteCountry } =
     useContext(CountryContext);
 
-  const coin = country?.currencies[Object.keys(country.currencies)[0]].name;
+  const coin = country.currencies[Object.keys(country.currencies)[0]].name;
 
-  const isFavorite = favoriteCountryNames.includes(country?.name.common);
+  const isFavorite = favoriteCountryNames.includes(country.name?.common);
 
   const toggleFavoriteStatus = () => {
-    toggleFavoriteCountry(country?.name.common);
+    toggleFavoriteCountry(country.name?.common);
   };
 
   return (
     <div className="w-full max-w-800 h-281 flex bg-grey-1 border border-solid border-grey-3 rounded-def mt-40 m-auto max-800:w-fit max-800:h-fit max-800:flex-col">
       <figure className="w-full max-w-421 h-256 p-3 max-800:h-fit">
         <img
-          src={country?.flags.svg}
-          alt={country?.name.common}
+          src={country.flags?.svg}
+          alt={country.name?.common}
           className="h-256 rounded-def max-800:h-fit"
         />
       </figure>
@@ -33,9 +33,9 @@ const CountryDetails = ({ country }: ICountry) => {
       <div className="w-full flex flex-col bg-grey-2 p-4 rounded-e-def">
         <div className="w-full flex justify-between pb-8">
           <div className="w-full flex flex-col">
-            <h2 className="font-bold text-lg">{country?.name.common}</h2>
+            <h2 className="font-bold text-lg">{country.name?.common}</h2>
 
-            <p className="font-bold text-base opacity-60">{country?.region}</p>
+            <p className="font-bold text-base opacity-60">{country.region}</p>
           </div>
 
           <div className="h-fit cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
@@ -53,20 +53,16 @@ const CountryDetails = ({ country }: ICountry) => {
 
         <section className="w-full flex justify-between max-370:flex-col gap-5">
           <div className="grid gap-5">
-            <Dado
-              Icon={GoHome}
-              title="Capital"
-              description={country?.capital}
-            />
+            <Dado Icon={GoHome} title="Capital" description={country.capital} />
             <Dado
               Icon={BiArea}
               title="Area"
-              description={`${country?.area} Km²`}
+              description={`${country.area} Km²`}
             />
             <Dado
               Icon={PiGlobeStandBold}
               title="Continent"
-              description={country?.continents}
+              description={country.continents}
             />
           </div>
 
@@ -79,12 +75,12 @@ const CountryDetails = ({ country }: ICountry) => {
             <Dado
               Icon={GoPeople}
               title="Population"
-              description={country?.population}
+              description={country.population}
             />
             <Dado
               Icon={FiFlag}
               title="Independent"
-              description={country?.independent ? "Yes" : "No"}
+              description={country.independent ? "Yes" : "No"}
             />
           </div>
         </section>
