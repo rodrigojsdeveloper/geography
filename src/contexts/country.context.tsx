@@ -15,6 +15,14 @@ export const CountryContextProvider = ({ children }: IChildren) => {
     []
   );
 
+  const [filteredFavorites, setFilteredFavorites] = useState<ICountryProps[]>(
+    []
+  );
+
+  const [favoriteCountryNames, setFavoriteCountryNames] = useState<string[]>(
+    []
+  );
+
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favorites");
 
@@ -26,6 +34,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
       );
 
       setFavorites(favoriteCountries);
+      setFilteredFavorites(favoriteCountries);
     }
   }, [countries]);
 
@@ -57,18 +66,43 @@ export const CountryContextProvider = ({ children }: IChildren) => {
   };
 
   const handleSelectContinentsFavorites = (continent: string) => {
-    setFilteredCountries(
+    setFilteredFavorites(
       favorites.filter((country) =>
         country.continents[0].toLowerCase().includes(continent.toLowerCase())
       )
     );
   };
 
+  const toggleFavoriteCountry = (countryName: string) => {
+    setFavoriteCountryNames((prevFavorites) => {
+      if (prevFavorites.includes(countryName)) {
+        const newFavorites = prevFavorites.filter(
+          (name) => name !== countryName
+        );
+        localStorage.setItem("favorites", JSON.stringify(newFavorites));
+        return newFavorites;
+      } else {
+        const newFavorites = [...prevFavorites, countryName];
+        localStorage.setItem("favorites", JSON.stringify(newFavorites));
+        return newFavorites;
+      }
+    });
+  };
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      const favoriteCountryNames = JSON.parse(storedFavorites);
+      setFavoriteCountryNames(favoriteCountryNames);
+    }
+  }, []);
+
   return (
     <CountryContext.Provider
       value={{
         countries,
         filteredCountries,
+        filteredFavorites,
         favorites,
         setFavorites,
         handleSearchCountry,
@@ -76,6 +110,8 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         handleSelectContinentsFavorites,
         count,
         setCount,
+        favoriteCountryNames,
+        toggleFavoriteCountry,
       }}
     >
       {children}

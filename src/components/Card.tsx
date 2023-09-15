@@ -1,52 +1,31 @@
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { CountryContext } from "../contexts/country.context";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { ICountry } from "../interfaces";
+import { useContext } from "react";
 
 const Card = ({ country }: ICountry) => {
   let { countryName } = useParams();
   countryName = country?.name.common;
 
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const { favoriteCountryNames, toggleFavoriteCountry } =
+    useContext(CountryContext);
+
+  const isFavorite = favoriteCountryNames.includes(countryName);
 
   const toggleFavoriteStatus = () => {
-    const newIsFavorite = !isFavorite;
-    setIsFavorite(newIsFavorite);
-
-    const storedFavorites = localStorage.getItem("favorites");
-    const favoriteCountries = storedFavorites
-      ? JSON.parse(storedFavorites)
-      : [];
-
-    if (newIsFavorite) {
-      favoriteCountries.push(countryName);
-    } else {
-      const index = favoriteCountries.indexOf(countryName);
-      if (index !== -1) {
-        favoriteCountries.splice(index, 1);
-      }
-    }
-
-    localStorage.setItem("favorites", JSON.stringify(favoriteCountries));
+    toggleFavoriteCountry(countryName);
   };
 
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem("favorites");
-    if (storedFavorites) {
-      const favoriteCountries = JSON.parse(storedFavorites);
-      setIsFavorite(favoriteCountries.includes(countryName));
-    }
-  }, [countryName]);
-
   return (
-    <div className="w-full h-96 flex bg-grey-1 border border-solid border-grey-3 cursor-pointer hover:brightness-1.3">
+    <div className="w-full h-96 flex bg-grey-1 border border-solid border-grey-3 cursor-pointer rounded-def hover:brightness-1.3">
       <img
         src={country?.flags.svg}
         alt={country?.name.common}
-        className="w-full max-w-110 h-74 m-auto mx-2.5 object-cover"
+        className="w-full max-w-110 h-74 m-auto mx-2.5 object-cover rounded-def"
       />
 
-      <div className="w-full flex justify-between bg-grey-2 p-2">
+      <div className="w-full flex justify-between rounded-e-def bg-grey-2 p-2">
         <a
           href={`country/${countryName}`}
           className="w-full flex flex-col justify-center"

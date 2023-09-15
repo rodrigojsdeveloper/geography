@@ -57,7 +57,7 @@ export default {
         "167": "167.2px",
         "205": "205.6px",
         "261": "261.6px",
-        "310": "310px",
+        "370": "370px",
         "480": "480px",
         "444": "444.4px",
         "421": "421.4px",
@@ -73,6 +73,9 @@ export default {
       },
       gridAutoRows: {
         "1fr": "minmax(96px,auto)"
+      },
+      borderRadius: {
+        "def": "0px"
       }
     },
   },

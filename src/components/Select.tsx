@@ -14,7 +14,7 @@ const Select = ({ disabled }: ISelect) => {
 
   return (
     <select
-      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer p-3 disabled:cursor-not-allowed disabled:opacity-50"
+      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer p-3 rounded-def disabled:cursor-not-allowed disabled:opacity-50"
       onChange={handleSelectChange}
       disabled={disabled}
     >

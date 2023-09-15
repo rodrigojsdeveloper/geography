@@ -99,6 +99,7 @@ export interface ICountriesPractice {
 export interface ICountryContextData {
   countries: Array<ICountryProps>;
   filteredCountries: Array<ICountryProps>;
+  filteredFavorites: Array<ICountryProps>;
   favorites: Array<ICountryProps>;
   setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
   handleSearchCountry: (name: string) => void;
@@ -106,6 +107,8 @@ export interface ICountryContextData {
   handleSelectContinentsFavorites: (continent: string) => void;
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
+  favoriteCountryNames: string[];
+  toggleFavoriteCountry: (countryName: string) => void;
 }
 
 export interface IDado {

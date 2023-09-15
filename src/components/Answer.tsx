@@ -102,7 +102,7 @@ const Answer = ({
         <div className="flex flex-col mb-6">
           <label className="font-medium text-sm mb-3">Respond</label>
           <input
-            className="w-full h-45 bg-grey-2 p-3 outline-none placeholder:focus:text-transparent"
+            className="w-full h-45 bg-grey-2 p-3 outline-none rounded-def placeholder:focus:text-transparent"
             placeholder="Enter the answer"
             autoComplete="off"
             {...register("name")}
@@ -125,7 +125,7 @@ const Answer = ({
         </div>
 
         <button
-          className="w-full h-40 bg-primary-color-1 disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full h-40 bg-primary-color-1 rounded-def disabled:cursor-not-allowed disabled:opacity-50"
           type="submit"
           disabled={count === 0 || rightCountry === true ? true : false}
         >
