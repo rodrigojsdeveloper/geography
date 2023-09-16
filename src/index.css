@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  resize: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Lexend", sans-serif;
+}
+
+body {
+  color: #f2f2f2;
+  background-color: #090909;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9a9898;
+  border-radius: 0.5px;
+}

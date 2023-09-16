@@ -3,9 +3,9 @@ import { IChildren } from "../interfaces";
 
 const Layout = ({ children }: IChildren) => {
   return (
-    <div className="w-full min-h-screen bg-grey-1 text-white-1 px-4 pt-4 pb-7 font-sans">
+    <div className="w-full min-h-screen px-4 pt-4 pb-7">
       <Header />
-      {children}
+      <main className="w-full max-w-1300 m-auto">{children}</main>
     </div>
   );
 };

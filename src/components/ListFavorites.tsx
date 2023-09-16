@@ -8,7 +8,7 @@ const ListFavorites = () => {
   const { filteredFavorites, loaded } = useContext(CountryContext);
 
   return (
-    <div className="w-full max-w-1440 m-auto">
+    <div className="w-full">
       {loaded ? (
         <Loaded />
       ) : filteredFavorites.length > 0 ? (

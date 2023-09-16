@@ -36,7 +36,7 @@ const Card = ({ country }: ICountry) => {
           <p className="font-bold text-xs opacity-60">{country?.region}</p>
         </a>
 
-        <div className="cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
+        <div className="h-fit cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
           {isFavorite ? (
             <AiFillHeart
               size={24}

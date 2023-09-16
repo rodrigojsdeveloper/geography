@@ -8,7 +8,7 @@ const List = () => {
   const { filteredCountries, loaded } = useContext(CountryContext);
 
   return (
-    <div className="w-full max-w-1440 m-auto">
+    <div className="w-full">
       {loaded ? (
         <Loaded />
       ) : filteredCountries.length > 0 ? (

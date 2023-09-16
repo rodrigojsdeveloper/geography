@@ -9,14 +9,10 @@ export default {
       "370": "370px",
       "425": "425px",
       "500": "500px",
-      "800": "800px",
       "768": "768px",
       "1024": "1024px",
     },
     extend: {
-      fontFamily: {
-        'sans': ['Poppins, sans-serif']
-      },
       colors: {
         "grey": {
           "1": "#090909",
@@ -40,10 +36,7 @@ export default {
       height: {
         "40": "40px",
         "45": "45.6px",
-        "74": "74px",
         "85": "85.6px",
-        "91": "91.6px",
-        "96": "96px",
         "140": "140px",
         "200": "200px",
         "236": "236px",
@@ -60,18 +53,12 @@ export default {
         "261": "261.6px",
         "336": "336.61px",
         "370": "370px",
-        "480": "480px",
-        "444": "444.4px",
-        "421": "421.4px",
         "470": "470px",
         "800": "800px",
-        "1440": "1440px",
+        "1300": "1300px",
       },
       brightness: {
         "1.3": "1.3"
-      },
-      borderRadius: {
-        "def": "4px"
       },
       gridAutoRows: {
         "1fr": "minmax(96px,auto)"
