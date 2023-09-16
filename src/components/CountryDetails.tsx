@@ -25,9 +25,9 @@ const CountryDetails = ({ country }: ICountry) => {
   const name = country.name?.common ?? "Unknown";
   const region = country.region ?? "Unknown";
   const capital = country.capital ?? "Unknown";
-  const area = `${country.area ?? 0} Km²`;
+  const area = `${country.area.toLocaleString("pt-BR") ?? 0} Km²`;
   const continents = country.continents ?? "Unknown";
-  const population = country.population ?? 0;
+  const population = country.population.toLocaleString("pt-BR") ?? 0;
   const isIndependent = country.independent ? "Yes" : "No";
 
   return (
@@ -62,7 +62,7 @@ const CountryDetails = ({ country }: ICountry) => {
         </div>
 
         <section className="w-full flex justify-between max-370:flex-col gap-5">
-          <div className="grid gap-5">
+          <div className="w-full grid gap-5">
             <Dado Icon={GoHome} title="Capital" description={capital} />
             <Dado Icon={BiArea} title="Area" description={area} />
             <Dado
@@ -72,7 +72,7 @@ const CountryDetails = ({ country }: ICountry) => {
             />
           </div>
 
-          <div className="grid gap-5">
+          <div className="w-full justify-end grid gap-5">
             <Dado
               Icon={PiCoinsBold}
               title="Official currency"

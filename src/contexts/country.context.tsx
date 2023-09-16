@@ -27,6 +27,13 @@ export const CountryContextProvider = ({ children }: IChildren) => {
     []
   );
 
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const [disabledNextPage, setDisabledNextPage] = useState<boolean>(false);
+
+  const [disabledPreviousPage, setDisabledPreviousPage] =
+    useState<boolean>(true);
+
   useEffect(() => {
     setLoaded(true);
 
@@ -109,6 +116,28 @@ export const CountryContextProvider = ({ children }: IChildren) => {
     }
   }, []);
 
+  const countriesPerPage = 65;
+
+  const startIndex = (currentPage - 1) * countriesPerPage;
+  const endIndex = startIndex + countriesPerPage;
+
+  const paginatedCountries = filteredCountries.slice(startIndex, endIndex);
+  const paginatedFavorites = filteredFavorites.slice(startIndex, endIndex);
+
+  const handleNextPage = () => {
+    if (!disabledNextPage) {
+      setCurrentPage(currentPage + 1);
+    }
+
+    window.scroll({ top: 0 });
+  };
+
+  const handlePreviousPage = () => {
+    if (!disabledPreviousPage) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
     <CountryContext.Provider
       value={{
@@ -127,6 +156,16 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         loaded,
         openModal,
         setOpenModal,
+        disabledNextPage,
+        disabledPreviousPage,
+        handleNextPage,
+        handlePreviousPage,
+        setDisabledNextPage,
+        setDisabledPreviousPage,
+        currentPage,
+        countriesPerPage,
+        paginatedCountries,
+        paginatedFavorites,
       }}
     >
       {children}

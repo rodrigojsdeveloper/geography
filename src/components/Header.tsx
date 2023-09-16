@@ -28,7 +28,7 @@ const Header = () => {
       />
 
       {openModal ? (
-        <div className="w-full h-236 fixed top-0 left-0 z-50 flex flex-col bg-shadow backdrop-blur-sm pt-5 pb-7">
+        <div className="w-full h-236 fixed top-0 left-0 z-50 flex flex-col bg-shadow backdrop-blur-sm py-5">
           <AiOutlineClose
             size={25}
             className="cursor-pointer absolute top-5 right-4"

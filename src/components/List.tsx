@@ -1,22 +1,24 @@
 import { CountryContext } from "../contexts/country.context";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { EmptyMessage } from "./EmptyMessage";
+import { Buttons } from "./Buttons";
 import { Loaded } from "./Loaded";
-import { Arrow } from "./Arrow";
 import { Card } from "./Card";
 
 const List = () => {
-  const { filteredCountries, loaded } = useContext(CountryContext);
-
-  const [currentPage, setCurrentPage] = useState<number>(1);
-
-  const [disabledNextPage, setDisabledNextPage] = useState<boolean>(false);
-
-  const [disabledPreviousPage, setDisabledPreviousPage] =
-    useState<boolean>(true);
-
-  const countriesPerPage = 65;
+  const {
+    filteredCountries,
+    loaded,
+    disabledNextPage,
+    disabledPreviousPage,
+    handleNextPage,
+    handlePreviousPage,
+    setDisabledNextPage,
+    setDisabledPreviousPage,
+    currentPage,
+    countriesPerPage,
+    paginatedCountries,
+  } = useContext(CountryContext);
 
   useEffect(() => {
     setDisabledPreviousPage(currentPage === 1);
@@ -24,25 +26,6 @@ const List = () => {
       currentPage * countriesPerPage >= filteredCountries.length
     );
   }, [currentPage, filteredCountries]);
-
-  const startIndex = (currentPage - 1) * countriesPerPage;
-  const endIndex = startIndex + countriesPerPage;
-
-  const paginatedCountries = filteredCountries.slice(startIndex, endIndex);
-
-  const handleNextPage = () => {
-    if (!disabledNextPage) {
-      setCurrentPage(currentPage + 1);
-    }
-
-    window.scroll({ top: 0 });
-  };
-
-  const handlePreviousPage = () => {
-    if (!disabledPreviousPage) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
 
   return (
     <div className="w-full">
@@ -55,18 +38,12 @@ const List = () => {
               <Card country={country} key={country.name.common} />
             ))}
           </menu>
-          <div className="w-full max-w-104 flex justify-between items-center mt-10 m-auto">
-            <Arrow
-              Icon={BsArrowLeft}
-              handleFunc={handlePreviousPage}
-              disabled={disabledPreviousPage}
-            />
-            <Arrow
-              Icon={BsArrowRight}
-              handleFunc={handleNextPage}
-              disabled={disabledNextPage}
-            />
-          </div>
+          <Buttons
+            disabledNextPage={disabledNextPage}
+            disabledPreviousPage={disabledPreviousPage}
+            handleNextPage={handleNextPage}
+            handlePreviousPage={handlePreviousPage}
+          />
         </>
       ) : (
         <EmptyMessage message="No country was found!" />

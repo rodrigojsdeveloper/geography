@@ -23,6 +23,8 @@ const PageCountryDetails = () => {
     flags: {
       png: "",
     },
+    area: 0,
+    population: 0,
   } as ICountryProps);
 
   const [loaded, setLoaded] = useState<boolean>(false);

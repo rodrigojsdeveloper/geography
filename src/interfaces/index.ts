@@ -112,6 +112,16 @@ export interface ICountryContextData {
   loaded: boolean;
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  disabledNextPage: boolean;
+  disabledPreviousPage: boolean;
+  handleNextPage: () => void;
+  handlePreviousPage: () => void;
+  setDisabledNextPage: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisabledPreviousPage: React.Dispatch<React.SetStateAction<boolean>>;
+  currentPage: number;
+  countriesPerPage: number;
+  paginatedCountries: Array<ICountryProps>;
+  paginatedFavorites: Array<ICountryProps>;
 }
 
 export interface IDado {
@@ -136,4 +146,11 @@ export interface IArrow {
   Icon: any;
   handleFunc: () => void;
   disabled: boolean;
+}
+
+export interface IButtons {
+  disabledNextPage: boolean;
+  disabledPreviousPage: boolean;
+  handleNextPage: () => void;
+  handlePreviousPage: () => void;
 }
