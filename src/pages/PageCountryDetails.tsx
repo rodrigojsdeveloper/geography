@@ -16,15 +16,12 @@ const PageCountryDetails = () => {
       common: "",
     },
     currencies: {
-      BRL: {
-        name: "",
-      },
-      EUA: {
+      UK: {
         name: "",
       },
     },
     flags: {
-      svg: "",
+      png: "",
     },
   } as ICountryProps);
 

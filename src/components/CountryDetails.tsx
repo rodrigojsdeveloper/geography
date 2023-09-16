@@ -12,30 +12,40 @@ const CountryDetails = ({ country }: ICountry) => {
   const { favoriteCountryNames, toggleFavoriteCountry } =
     useContext(CountryContext);
 
-  const coin = country.currencies[Object.keys(country.currencies)[0]].name;
-
   const isFavorite = favoriteCountryNames.includes(country.name?.common);
 
   const toggleFavoriteStatus = () => {
     toggleFavoriteCountry(country.name?.common);
   };
 
+  const coin = country.currencies
+    ? country.currencies[Object.keys(country.currencies)[0]].name
+    : "Unknown";
+  const src = country.flags?.png ?? "";
+  const name = country.name?.common ?? "Unknown";
+  const region = country.region ?? "Unknown";
+  const capital = country.capital ?? "Unknown";
+  const area = `${country.area ?? 0} Km²`;
+  const continents = country.continents ?? "Unknown";
+  const population = country.population ?? 0;
+  const isIndependent = country.independent ? "Yes" : "No";
+
   return (
     <div className="w-full max-w-800 h-281 flex bg-grey-1 border border-solid border-grey-3 rounded-def mt-40 m-auto max-768:w-fit max-768:h-fit max-768:flex-col">
       <figure className="w-full h-256 p-3 max-768:h-fit">
         <img
-          src={country.flags?.png}
-          alt={country.name?.common}
-          className="h-256 rounded-def max-768:h-fit"
+          src={src}
+          alt={name}
+          className="w-full h-256 rounded-def max-768:h-fit"
         />
       </figure>
 
       <div className="w-full max-w-336 flex flex-col bg-grey-2 border-l border-solid border-grey-3 p-4 rounded-e-def max-768:max-w-none max-768:border-l-0 max-768:border-t">
         <div className="w-full flex justify-between pb-8">
           <div className="w-full flex flex-col">
-            <h2 className="font-bold text-lg">{country.name?.common}</h2>
+            <h2 className="font-bold text-lg">{name}</h2>
 
-            <p className="font-bold text-base opacity-60">{country.region}</p>
+            <p className="font-bold text-base opacity-60">{region}</p>
           </div>
 
           <div className="h-fit cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
@@ -53,16 +63,12 @@ const CountryDetails = ({ country }: ICountry) => {
 
         <section className="w-full flex justify-between max-370:flex-col gap-5">
           <div className="grid gap-5">
-            <Dado Icon={GoHome} title="Capital" description={country.capital} />
-            <Dado
-              Icon={BiArea}
-              title="Area"
-              description={`${country.area} Km²`}
-            />
+            <Dado Icon={GoHome} title="Capital" description={capital} />
+            <Dado Icon={BiArea} title="Area" description={area} />
             <Dado
               Icon={PiGlobeStandBold}
               title="Continent"
-              description={country.continents}
+              description={continents}
             />
           </div>
 
@@ -72,15 +78,11 @@ const CountryDetails = ({ country }: ICountry) => {
               title="Official currency"
               description={coin}
             />
-            <Dado
-              Icon={GoPeople}
-              title="Population"
-              description={country.population}
-            />
+            <Dado Icon={GoPeople} title="Population" description={population} />
             <Dado
               Icon={FiFlag}
               title="Independent"
-              description={country.independent ? "Yes" : "No"}
+              description={isIndependent}
             />
           </div>
         </section>

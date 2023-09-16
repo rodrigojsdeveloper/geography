@@ -18,12 +18,14 @@ const Card = ({ country }: ICountry) => {
   };
 
   return (
-    <div className="w-full h-96 flex bg-grey-1 border border-solid border-grey-3 cursor-pointer rounded-def hover:brightness-1.3">
-      <img
-        src={country?.flags.png}
-        alt={country?.name.common}
-        className="w-full max-w-110 h-74 m-auto mx-2.5 rounded-def"
-      />
+    <div className="w-full flex bg-grey-1 border border-solid border-grey-3 cursor-pointer rounded-def hover:brightness-1.3">
+      <figure className="w-full max-w-127 p-2">
+        <img
+          src={country?.flags.png}
+          alt={country?.name.common}
+          className="w-full h-full rounded-def"
+        />
+      </figure>
 
       <div className="w-full flex justify-between rounded-e-def bg-grey-2 border-l border-solid border-grey-3 p-2">
         <a
@@ -34,7 +36,7 @@ const Card = ({ country }: ICountry) => {
           <p className="font-bold text-xs opacity-60">{country?.region}</p>
         </a>
 
-        <div className="h-fit cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
+        <div className="cursor-pointer p-1.5 hover:bg-grey-3 hover:rounded-full">
           {isFavorite ? (
             <AiFillHeart
               size={24}

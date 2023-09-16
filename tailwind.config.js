@@ -42,6 +42,7 @@ export default {
         "45": "45.6px",
         "74": "74px",
         "85": "85.6px",
+        "91": "91.6px",
         "96": "96px",
         "140": "140px",
         "200": "200px",
@@ -53,7 +54,7 @@ export default {
       },
       maxWidth: {
         "104": "104.68px",
-        "110": "110px",
+        "127": "127.6px",
         "167": "167.2px",
         "205": "205.6px",
         "261": "261.6px",
@@ -76,7 +77,7 @@ export default {
         "1fr": "minmax(96px,auto)"
       },
       borderRadius: {
-        "def": "8px"
+        "def": "0px"
       }
     },
   },
