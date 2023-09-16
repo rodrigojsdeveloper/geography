@@ -1,9 +1,8 @@
-import { CountryContext } from "../contexts/country.context";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ICountriesPractice } from "../interfaces";
 import { BiSkipNextCircle } from "react-icons/bi";
-import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import * as yup from "yup";
 
 const Answer = ({
