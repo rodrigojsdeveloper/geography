@@ -9,7 +9,7 @@ import { Layout } from "./Layout";
 const Practice = () => {
   const { countries } = useContext(CountryContext);
 
-  const [favorites, setFavorites] = useState<ICountryProps[]>([]);
+  const [sortedCountries, setSortedCountries] = useState<ICountryProps[]>([]);
 
   const [country, setCountry] = useState<ICountryProps>({} as ICountryProps);
 
@@ -19,9 +19,9 @@ const Practice = () => {
       [countries[i], countries[j]] = [countries[j], countries[i]];
     }
 
-    setFavorites(countries);
-    setCountry(favorites[0]);
-  }, [countries, favorites]);
+    setSortedCountries(countries);
+    setCountry(sortedCountries[0]);
+  }, [countries, sortedCountries]);
 
   return (
     <Layout>
@@ -32,8 +32,8 @@ const Practice = () => {
           country={country}
           countries={countries}
           setCountry={setCountry}
-          favorites={favorites}
-          setFavorites={setFavorites}
+          sortedCountries={sortedCountries}
+          setSortedCountries={setSortedCountries}
         />
       </div>
     </Layout>

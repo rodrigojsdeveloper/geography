@@ -91,8 +91,8 @@ export interface ICountry {
 export interface ICountriesPractice {
   country: ICountryProps;
   countries: ICountryProps[];
-  favorites: ICountryProps[];
-  setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
+  sortedCountries: ICountryProps[];
+  setSortedCountries: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
   setCountry: React.Dispatch<React.SetStateAction<ICountryProps>>;
 }
 
@@ -105,8 +105,6 @@ export interface ICountryContextData {
   handleSearchCountry: (name: string) => void;
   handleSelectContinents: (continent: string) => void;
   handleSelectContinentsFavorites: (continent: string) => void;
-  count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
   favoriteCountryNames: string[];
   toggleFavoriteCountry: (countryName: string) => void;
   loaded: boolean;

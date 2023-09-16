@@ -7,8 +7,6 @@ export const CountryContext = createContext({} as ICountryContextData);
 export const CountryContextProvider = ({ children }: IChildren) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
-  const [count, setCount] = useState<number>(5);
-
   const [loaded, setLoaded] = useState<boolean>(false);
 
   const [countries, setCountries] = useState<ICountryProps[]>([]);
@@ -79,7 +77,9 @@ export const CountryContextProvider = ({ children }: IChildren) => {
   const handleSelectContinents = (continent: string) => {
     setFilteredCountries(
       countries.filter((country) =>
-        country.continents[0].toLowerCase().includes(continent.toLowerCase())
+        country.continents.some((c) =>
+          c.toLowerCase().includes(continent.toLowerCase())
+        )
       )
     );
   };
@@ -87,7 +87,9 @@ export const CountryContextProvider = ({ children }: IChildren) => {
   const handleSelectContinentsFavorites = (continent: string) => {
     setFilteredFavorites(
       favorites.filter((country) =>
-        country.continents[0].toLowerCase().includes(continent.toLowerCase())
+        country.continents.some((c) =>
+          c.toLowerCase().includes(continent.toLowerCase())
+        )
       )
     );
   };
@@ -149,8 +151,6 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         handleSearchCountry,
         handleSelectContinents,
         handleSelectContinentsFavorites,
-        count,
-        setCount,
         favoriteCountryNames,
         toggleFavoriteCountry,
         loaded,

@@ -1,5 +1,4 @@
 import { CountryContext } from "../contexts/country.context";
-import { sortCountries } from "../utils/sortCountries";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ICountriesPractice } from "../interfaces";
 import { BiSkipNextCircle } from "react-icons/bi";
@@ -11,10 +10,10 @@ const Answer = ({
   country,
   countries,
   setCountry,
-  favorites,
-  setFavorites,
+  sortedCountries,
+  setSortedCountries,
 }: ICountriesPractice) => {
-  const { count, setCount } = useContext(CountryContext);
+  const [count, setCount] = useState<number>(5);
 
   const [message, setMessage] = useState<boolean>(false);
 
@@ -37,9 +36,12 @@ const Answer = ({
   });
 
   const onSubmitFunction = (data: any) => {
+    console.log(country.name.common);
+    console.log(data.name);
     if (country?.name.common.toLowerCase() !== data.name.toLowerCase()) {
       setCount((prevCount) => {
         const updatedCount = prevCount - 1;
+        console.log(updatedCount);
         if (updatedCount === 0) {
           setNextCountry(true);
           setNextMessage(
@@ -76,8 +78,13 @@ const Answer = ({
             size={28}
             className="cursor-pointer"
             onClick={() => {
-              setFavorites(sortCountries(countries));
-              setCountry(favorites[0]);
+              for (let i = countries.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [countries[i], countries[j]] = [countries[j], countries[i]];
+              }
+
+              setSortedCountries(countries);
+              setCountry(sortedCountries[0]);
               setCount(5);
               setMessage(false);
               setRightCountry(false);
@@ -123,7 +130,7 @@ const Answer = ({
         <button
           className="w-full h-40 bg-primary-color-1 rounded-def disabled:cursor-not-allowed disabled:opacity-50"
           type="submit"
-          disabled={count === 0 || rightCountry === true ? true : false}
+          disabled={count === 0 || rightCountry ? true : false}
         >
           To check
         </button>

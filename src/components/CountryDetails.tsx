@@ -26,7 +26,7 @@ const CountryDetails = ({ country }: ICountry) => {
   const region = country.region ?? "Unknown";
   const capital = country.capital ?? "Unknown";
   const area = `${country.area.toLocaleString("pt-BR") ?? 0} Km²`;
-  const continents = country.continents ?? "Unknown";
+  const continents = country.continents.join(", ") ?? "Unknown";
   const population = country.population.toLocaleString("pt-BR") ?? 0;
   const isIndependent = country.independent ? "Yes" : "No";
 

@@ -25,6 +25,7 @@ const PageCountryDetails = () => {
     },
     area: 0,
     population: 0,
+    continents: [""],
   } as ICountryProps);
 
   const [loaded, setLoaded] = useState<boolean>(false);
