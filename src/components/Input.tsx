@@ -10,7 +10,7 @@ const Input = () => {
   return (
     <div className="w-full max-w-261 h-45 bg-grey-2 flex justify-between items-center rounded-def max-500:mb-3.5">
       <input
-        className="w-full max-w-205 bg-grey-2 p-3 outline-none rounded-def placeholder:focus:text-transparent"
+        className="w-full max-w-205 bg-grey-2 py-2 px-3 outline-none rounded-def placeholder:focus:text-transparent"
         placeholder="Name of the country"
         onChange={(e) => setCountry(e.target.value)}
       />

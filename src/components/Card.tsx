@@ -20,12 +20,12 @@ const Card = ({ country }: ICountry) => {
   return (
     <div className="w-full h-96 flex bg-grey-1 border border-solid border-grey-3 cursor-pointer rounded-def hover:brightness-1.3">
       <img
-        src={country?.flags.svg}
+        src={country?.flags.png}
         alt={country?.name.common}
-        className="w-full max-w-110 h-74 m-auto mx-2.5 object-cover rounded-def"
+        className="w-full max-w-110 h-74 m-auto mx-2.5 rounded-def"
       />
 
-      <div className="w-full flex justify-between rounded-e-def bg-grey-2 p-2">
+      <div className="w-full flex justify-between rounded-e-def bg-grey-2 border-l border-solid border-grey-3 p-2">
         <a
           href={`country/${countryName}`}
           className="w-full flex flex-col justify-center"

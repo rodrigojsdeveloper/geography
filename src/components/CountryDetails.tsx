@@ -21,16 +21,16 @@ const CountryDetails = ({ country }: ICountry) => {
   };
 
   return (
-    <div className="w-full max-w-800 h-281 flex bg-grey-1 border border-solid border-grey-3 rounded-def mt-40 m-auto max-800:w-fit max-800:h-fit max-800:flex-col">
-      <figure className="w-full max-w-421 h-256 p-3 max-800:h-fit">
+    <div className="w-full max-w-800 h-281 flex bg-grey-1 border border-solid border-grey-3 rounded-def mt-40 m-auto max-768:w-fit max-768:h-fit max-768:flex-col">
+      <figure className="w-full h-256 p-3 max-768:h-fit">
         <img
-          src={country.flags?.svg}
+          src={country.flags?.png}
           alt={country.name?.common}
-          className="h-256 rounded-def max-800:h-fit"
+          className="h-256 rounded-def max-768:h-fit"
         />
       </figure>
 
-      <div className="w-full flex flex-col bg-grey-2 p-4 rounded-e-def">
+      <div className="w-full max-w-336 flex flex-col bg-grey-2 border-l border-solid border-grey-3 p-4 rounded-e-def max-768:max-w-none max-768:border-l-0 max-768:border-t">
         <div className="w-full flex justify-between pb-8">
           <div className="w-full flex flex-col">
             <h2 className="font-bold text-lg">{country.name?.common}</h2>
