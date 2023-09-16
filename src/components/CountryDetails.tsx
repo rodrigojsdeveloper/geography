@@ -40,7 +40,7 @@ const CountryDetails = ({ country }: ICountry) => {
         />
       </figure>
 
-      <div className="w-full max-w-336 flex flex-col bg-grey-2 border-l border-solid border-grey-3 p-4 rounded-e-def max-768:max-w-none max-768:border-l-0 max-768:border-t">
+      <div className="w-full max-w-336 flex flex-col bg-grey-2 border-l border-solid border-grey-3 p-4 rounded-e-def max-768:max-w-none max-768:border-l-0 max-768:border-t max-768:px-2.5">
         <div className="w-full flex justify-between pb-8">
           <div className="w-full flex flex-col">
             <h2 className="font-bold text-lg">{name}</h2>

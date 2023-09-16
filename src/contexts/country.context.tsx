@@ -1,5 +1,6 @@
 import { ICountryProps, ICountryContextData, IChildren } from "../interfaces";
 import { createContext, useEffect, useState } from "react";
+import { sortCountries } from "../utils/sortCountries";
 import { api } from "../services/api";
 
 export const CountryContext = createContext({} as ICountryContextData);
@@ -52,7 +53,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
       .get("all")
       .then((res) => {
         const data = res.data;
-        setCountries(data);
+        setCountries(sortCountries(data));
         setFilteredCountries(data);
       })
       .catch((error) => console.log(error))

@@ -66,6 +66,12 @@ export default {
       },
       borderRadius: {
         "def": "0px"
+      },
+      backgroundImage: {
+        "button": `url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.127L12 18.127L20 10.127H4Z" fill="%23f4f4f4"/></svg>')`
+      },
+      backgroundPosition: {
+        "right-4": "bottom 0.9rem right 0.5rem"
       }
     },
   },

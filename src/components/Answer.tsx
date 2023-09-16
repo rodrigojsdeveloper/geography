@@ -1,4 +1,5 @@
 import { CountryContext } from "../contexts/country.context";
+import { sortCountries } from "../utils/sortCountries";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ICountriesPractice } from "../interfaces";
 import { BiSkipNextCircle } from "react-icons/bi";
@@ -75,12 +76,7 @@ const Answer = ({
             size={28}
             className="cursor-pointer"
             onClick={() => {
-              for (let i = countries.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [countries[i], countries[j]] = [countries[j], countries[i]];
-              }
-
-              setFavorites(countries);
+              setFavorites(sortCountries(countries));
               setCountry(favorites[0]);
               setCount(5);
               setMessage(false);
