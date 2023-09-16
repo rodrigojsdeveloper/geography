@@ -110,6 +110,8 @@ export interface ICountryContextData {
   favoriteCountryNames: string[];
   toggleFavoriteCountry: (countryName: string) => void;
   loaded: boolean;
+  openModal: boolean;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IDado {

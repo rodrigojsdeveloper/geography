@@ -1,11 +1,12 @@
 import { ICountryProps, ICountryContextData, IChildren } from "../interfaces";
 import { createContext, useEffect, useState } from "react";
-import { sortCountries } from "../utils/sortCountries";
 import { api } from "../services/api";
 
 export const CountryContext = createContext({} as ICountryContextData);
 
 export const CountryContextProvider = ({ children }: IChildren) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   const [count, setCount] = useState<number>(5);
 
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -53,7 +54,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
       .get("all")
       .then((res) => {
         const data = res.data;
-        setCountries(sortCountries(data));
+        setCountries(data);
         setFilteredCountries(data);
       })
       .catch((error) => console.log(error))
@@ -124,6 +125,8 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         favoriteCountryNames,
         toggleFavoriteCountry,
         loaded,
+        openModal,
+        setOpenModal,
       }}
     >
       {children}
