@@ -103,7 +103,7 @@ export interface ICountryContextData {
   favorites: Array<ICountryProps>;
   setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
   handleSearchCountry: (name: string) => void;
-  handleSelectContinents: (continent: string) => void;
+  handleSelectContinents: (region: string) => void;
   handleSelectContinentsFavorites: (continent: string) => void;
   favoriteCountryNames: string[];
   toggleFavoriteCountry: (countryName: string) => void;

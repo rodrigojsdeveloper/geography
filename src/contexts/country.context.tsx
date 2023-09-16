@@ -74,24 +74,45 @@ export const CountryContextProvider = ({ children }: IChildren) => {
     );
   };
 
-  const handleSelectContinents = (continent: string) => {
-    setFilteredCountries(
-      countries.filter((country) =>
-        country.continents.some((c) =>
-          c.toLowerCase().includes(continent.toLowerCase())
-        )
-      )
-    );
+  const handleSelectContinents = (region: string) => {
+    if (region === "All") {
+      api
+        .get("all")
+        .then((res) => setFilteredCountries(res.data))
+        .catch((error) => console.error(error));
+    } else {
+      api
+        .get(`region/${region}`)
+        .then((res) => setFilteredCountries(res.data))
+        .catch((error) => console.error(error));
+    }
   };
 
   const handleSelectContinentsFavorites = (continent: string) => {
-    setFilteredFavorites(
-      favorites.filter((country) =>
-        country.continents.some((c) =>
-          c.toLowerCase().includes(continent.toLowerCase())
+    if (continent === "Americas") {
+      setFilteredFavorites([
+        ...favorites.filter((country) =>
+          country.continents.some((c) =>
+            c.toLowerCase().includes("South America".toLowerCase())
+          )
+        ),
+        ...favorites.filter((country) =>
+          country.continents.some((c) =>
+            c.toLowerCase().includes("North America".toLowerCase())
+          )
+        ),
+      ]);
+    } else if (continent === "All") {
+      setFilteredFavorites(favorites);
+    } else {
+      setFilteredFavorites(
+        favorites.filter((country) =>
+          country.continents.some((c) =>
+            c.toLowerCase().includes(continent.toLowerCase())
+          )
         )
-      )
-    );
+      );
+    }
   };
 
   const toggleFavoriteCountry = (countryName: string) => {

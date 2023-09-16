@@ -32,7 +32,9 @@ const Card = ({ country }: ICountry) => {
           href={`country/${countryName}`}
           className="w-full flex flex-col justify-center"
         >
-          <h2 className="font-bold text-base mb-2">{country?.name.common}</h2>
+          <h2 className="font-extrabold text-base mb-2">
+            {country?.name.common}
+          </h2>
           <p className="font-bold text-xs opacity-60">{country?.region}</p>
         </a>
 
