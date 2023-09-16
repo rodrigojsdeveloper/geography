@@ -33,7 +33,7 @@ $ yarn dev
 # The project will start on <http://localhost:5173>
 ```
 
-## Desenvolvedor
+## Developer
 
 <div>
 	<a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva">
