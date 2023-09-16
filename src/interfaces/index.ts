@@ -129,3 +129,9 @@ export interface ISelect {
 export interface IEmptyMessage {
   message: string;
 }
+
+export interface IArrow {
+  Icon: any;
+  handleFunc: () => void;
+  disabled: boolean;
+}
