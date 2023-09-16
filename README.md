@@ -1,27 +1,45 @@
-# React + TypeScript + Vite
+<h1 align="center">
+   Geography
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The user can explore, favorite and be challenged by countries around the world. For better navigation it has filters, search bar and pagination.
 
-Currently, two official plugins are available:
+Favorites are saved and kept on your device's local storage, so when you sign out, you'll keep that data saved.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Additionally, there is a challenge session. The algorithm will choose a random country, without repetition, and the user will have to discover the name of that country, based on
+available information such as: Capital, flag and region. The user has 5 attempts before the challenge fails. Finally, the status of this challenge is shown
+and the currently selected country goes to a list of countries that have already been chosen.
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [React](https://react.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/)
+- [React Router DOM](https://reactrouter.com/en/main/)
 
-- Configure the top-level `parserOptions` property like this:
+## Starting the Project
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+# Clone this project
+$ git clone https://github.com/rodrigojsdeveloper/geography.git
+
+# Install dependencies
+$ yarn
+
+# Starting the Project
+$ yarn dev
+
+# The project will start on <http://localhost:5173>
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Desenvolvedor
+
+<div>
+	<a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva">
+		<img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+	</a>
+	<a href="mailto:rodrigojsdeveloper@gmail.com" rel="noreferrer" target="_blank">
+	  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+	</a>
+</div>

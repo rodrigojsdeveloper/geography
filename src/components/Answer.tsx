@@ -35,12 +35,9 @@ const Answer = ({
   });
 
   const onSubmitFunction = (data: any) => {
-    console.log(country.name.common);
-    console.log(data.name);
     if (country?.name.common.toLowerCase() !== data.name.toLowerCase()) {
       setCount((prevCount) => {
         const updatedCount = prevCount - 1;
-        console.log(updatedCount);
         if (updatedCount === 0) {
           setNextCountry(true);
           setNextMessage(
@@ -60,6 +57,10 @@ const Answer = ({
       setRightCountry(true);
       setRightMessage(
         `Right answer! The name of this country is ${country?.name?.common}`
+      );
+
+      countries = countries.filter(
+        (c) => c.name.common !== country.name.common
       );
     }
   };
