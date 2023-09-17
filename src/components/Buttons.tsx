@@ -9,7 +9,7 @@ const Buttons = ({
   handlePreviousPage,
 }: IButtons) => {
   return (
-    <div className="w-full max-w-104 flex justify-between items-center mt-10 m-auto">
+    <div className="w-full max-w-104 flex justify-between items-center mt-5 m-auto">
       <Arrow
         Icon={BsArrowLeft}
         handleFunc={handlePreviousPage}
