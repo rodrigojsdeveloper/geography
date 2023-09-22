@@ -11,7 +11,7 @@ const Layout = ({ children }: IChildren) => {
       <Header />
       <main
         onClick={() => setOpenModal(false)}
-        className="w-full max-w-1300 min-h-screen m-auto"
+        className="w-full max-w-1300 m-auto"
       >
         {children}
       </main>
