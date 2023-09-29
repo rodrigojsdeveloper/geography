@@ -1,37 +1,77 @@
-<h1 align="center">
+<div align="center">
+<h1>
    Geography
 </h1>
 
-The user can explore, favorite and be challenged by countries around the world. For better navigation it has filters, search bar and pagination.
+<p>Geography, where users can explore and have fun with countries around the world.</p>
+</div>
 
-Favorites are saved and kept on your device's local storage, so when you sign out, you'll keep that data saved.
+## Cloning the Repository
 
-Additionally, there is a challenge session. The algorithm will choose a random country, without repetition, and the user will have to discover the name of that country, based on
-available information such as: Capital, flag and region. The user has 5 attempts before the challenge fails. Finally, the status of this challenge is shown
-and the currently selected country goes to a list of countries that have already been chosen.
+You can clone this repository using the following command:
 
-## Technologies
-
-- [React](https://react.dev/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Axios](https://axios-http.com/)
-- [React Router DOM](https://reactrouter.com/en/main/)
-
-## Starting the Project
-
-```bash
-# Clone this project
-$ git clone https://github.com/rodrigojsdeveloper/geography.git
-
-# Install dependencies
-$ yarn
-
-# Starting the Project
-$ yarn dev
-
-# The project will start on <http://localhost:5173>
+```
+https://github.com/rodrigojsdeveloper/geography.git
 ```
 
-<p align="center">Made by <a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva/">Rodrigo Silva</a>
+## Package Manager
+
+This project uses Yarn as a package manager. Make sure you have it installed before proceeding. If you don't already have it, you can download it <a href="https://classic.yarnpkg.com/lang/en/docs/install">here</a>.
+
+### Warning:
+
+Although Yarn is the recommended package manager, you can also use NPM by running the following commands:
+
+- To install dependencies: npm install
+- To start Geography: npm run dev
+
+## Installation of Dependencies
+
+To install project dependencies, open the terminal at the root and run the following command:
+
+```
+yarn
+```
+
+## Starting Geoghapy
+
+To start the project, run the following command in the terminal:
+
+```
+yarn dev
+```
+
+## Starting the Project in Docker
+
+At the root of the project, run the following commands:
+
+```
+# Build the Docker image for the current folder and with `dockerized-react`
+
+docker build . -t dockerized-react
+
+
+# Check if the image was created
+
+docker images | grep dockerized-react
+
+
+# Run the image in detached mode and map port 5173 inside the container with 5173 on the current host
+
+docker run -p 5173:5173 -d dockerized-react
+
+```
+
+The -d flag runs the project in the background, freeing up the terminal for other uses.
+
+### Accessing Geography on Vercel
+
+You can access the Geography application at the following link:
+
+```
+https://geography-beta.vercel.app/
+```
+
+<br/>
+<p align="center">Developed by <a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva/">Rodrigo Silva</a>
 </p>
