@@ -5,6 +5,7 @@
 
 <p>Geography, where users can explore and have fun with countries around the world.</p>
 </div>
+<br/>
 
 ## Cloning the Repository
 
