@@ -26,7 +26,7 @@ const Practice = () => {
   return (
     <Layout>
       <Title title="What is the name of this country?" />
-      <div className="w-full flex justify-between items-center m-auto max-1024:flex-col">
+      <div className="w-full max-w-1200 flex justify-between items-center m-auto max-1024:flex-col">
         <Country country={country} />
         <Answer
           country={country}

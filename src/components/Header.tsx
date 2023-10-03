@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <header className="w-full max-w-1300 flex justify-between items-center m-auto">
       <a href="/">
-        <BiWorld size={36} color="#38BFD8" />
+        <BiWorld size={36} color="#00875F" />
       </a>
 
       <nav className="flex justify-between max-768:hidden">

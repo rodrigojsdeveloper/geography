@@ -52,7 +52,7 @@ const CountryDetails = ({ country }: ICountry) => {
             {isFavorite ? (
               <AiFillHeart
                 size={24}
-                color="#38BFD8"
+                color="#00875F"
                 onClick={toggleFavoriteStatus}
               />
             ) : (

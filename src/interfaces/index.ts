@@ -1,5 +1,7 @@
 export interface IChildren {
   children: React.ReactNode;
+  onClick?: any;
+  style?: React.CSSProperties | undefined;
 }
 
 export interface ILink extends IChildren {

@@ -139,7 +139,7 @@ export const CountryContextProvider = ({ children }: IChildren) => {
     }
   }, []);
 
-  const countriesPerPage = 65;
+  const countriesPerPage = 66;
 
   const startIndex = (currentPage - 1) * countriesPerPage;
   const endIndex = startIndex + countriesPerPage;

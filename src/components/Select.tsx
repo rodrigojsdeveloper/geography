@@ -14,7 +14,7 @@ const Select = ({ disabled }: ISelect) => {
 
   return (
     <select
-      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer py-2 px-3 rounded-def appearance-none bg-arrow bg-no-repeat bg-right-4 focus:bg-arrowClick disabled:cursor-not-allowed disabled:opacity-50"
+      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer py-2 px-3 rounded-def appearance-none bg-arrow bg-no-repeat bg-right-4 focus:bg-arrowClick disabled:cursor-default disabled:opacity-50"
       onChange={handleSelectChange}
       disabled={disabled}
       defaultValue={"Filter by region"}
