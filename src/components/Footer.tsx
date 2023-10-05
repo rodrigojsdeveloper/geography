@@ -1,16 +1,16 @@
 const Footer = () => {
   return (
     <footer className="w-full h-90 mt-5 border-t border-solid border-grey-2 px-4">
-      <div className="w-full max-w-1300 m-auto flex justify-between items-center pt-6">
+      <div className="w-full max-w-1300 m-auto flex justify-between items-center pt-6 max-768:flex-col  max-768:items-start">
         <p className="font-medium text-sm opacity-60">All rights reserved</p>
 
-        <div className="flex justify-center items-center">
-          <small className="font-medium text-sm opacity-60">
+        <div className="flex justify-center items-center max-768:w-full max-768:justify-between">
+          <small className="font-medium text-sm opacity-60 max-768:mt-5">
             Geography 2023
           </small>
           <button
             onClick={() => window.scroll({ top: 0 })}
-            className="w-43 h-43 bg-grey-2 border-2 border-solid border-grey-2 flex justify-center items-center transition-all ease-in duration-300 rounded-def ml-6 hover:bg-grey-1"
+            className="w-43 h-43 bg-grey-2 border-2 border-solid border-grey-2 flex justify-center items-center transition-all ease-in duration-300 rounded-def ml-6 hover:bg-grey-1 max-768:mt-20"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

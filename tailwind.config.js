@@ -77,6 +77,10 @@ export default {
       backgroundPosition: {
         "right-4": "bottom 0.9rem right 0.5rem",
       },
+      margin: {
+        5: "5px",
+        20: "-20px",
+      },
     },
   },
   plugins: [],
