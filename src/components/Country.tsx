@@ -5,7 +5,7 @@ import { Dado } from "./Dado";
 
 const Country = ({ country }: ICountry) => {
   return (
-    <div className="w-full max-w-470 border border-solid border-grey-3 rounded-def">
+    <div className="w-full max-w-470 border border-solid border-grey-3 rounded-def max-1024:mb-10">
       <figure className="w-full h-321 p-3 max-1024:h-fit">
         <img
           src={country?.flags?.png}
