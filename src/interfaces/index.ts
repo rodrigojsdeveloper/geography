@@ -6,6 +6,7 @@ export interface IChildren {
 
 export interface ILink extends IChildren {
   href: string;
+  activeLink: string;
 }
 
 export interface ICountryProps {

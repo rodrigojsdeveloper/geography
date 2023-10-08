@@ -1,11 +1,19 @@
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { CountryContext } from "../contexts/country.context";
+import { useContext, useState, useEffect } from "react";
 import { BiWorld } from "react-icons/bi";
-import { useContext } from "react";
 import { Link } from "./Link";
 
 const Header = () => {
   const { openModal, setOpenModal } = useContext(CountryContext);
+
+  const [currentUrl, setCurrentUrl] = useState<string>(
+    window.location.href.split("/")[3]
+  );
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href.split("/")[3]);
+  }, []);
 
   return (
     <header className="w-full max-w-1300 flex justify-between items-center m-auto">
@@ -14,9 +22,30 @@ const Header = () => {
       </a>
 
       <nav className="flex justify-between max-768:hidden">
-        <Link href="/">Explore</Link>
-        <Link href="/practice">Practice</Link>
-        <Link href="/favorites">Favorites</Link>
+        <Link
+          href="/"
+          activeLink={
+            currentUrl === "" ? "text-primary-color-1" : "text-white-1"
+          }
+        >
+          Explore
+        </Link>
+        <Link
+          href="/practice"
+          activeLink={
+            currentUrl === "practice" ? "text-primary-color-1" : "text-white-1"
+          }
+        >
+          Practice
+        </Link>
+        <Link
+          href="/favorites"
+          activeLink={
+            currentUrl === "favorites" ? "text-primary-color-1" : "text-white-1"
+          }
+        >
+          Favorites
+        </Link>
       </nav>
 
       <AiOutlineMenu
@@ -36,9 +65,34 @@ const Header = () => {
           />
 
           <nav className="w-full h-200 flex flex-col justify-between items-center mt-4">
-            <Link href="/">Explore</Link>
-            <Link href="/practice">Practice</Link>
-            <Link href="/favorites">Favorites</Link>
+            <Link
+              href="/"
+              activeLink={
+                currentUrl === "" ? "text-primary-color-1" : "text-white-1"
+              }
+            >
+              Explore
+            </Link>
+            <Link
+              href="/practice"
+              activeLink={
+                currentUrl === "practice"
+                  ? "text-primary-color-1"
+                  : "text-white-1"
+              }
+            >
+              Practice
+            </Link>
+            <Link
+              href="/favorites"
+              activeLink={
+                currentUrl === "favorites"
+                  ? "text-primary-color-1"
+                  : "text-white-1"
+              }
+            >
+              Favorites
+            </Link>
           </nav>
         </div>
       ) : null}
