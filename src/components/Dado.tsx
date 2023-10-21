@@ -1,4 +1,4 @@
-import { IDado } from "../interfaces";
+import { IDado } from '../interfaces'
 
 const Dado = ({ title, description, Icon }: IDado) => {
   return (
@@ -6,11 +6,11 @@ const Dado = ({ title, description, Icon }: IDado) => {
       <Icon size={24} />
 
       <div className="w-full max-w-104 pl-1.5">
-        <h2 className="font-bold text-xs pb-1">{title}</h2>
-        <p className="font-bold text-xs opacity-60">{description}</p>
+        <h2 className="pb-1 text-xs font-bold">{title}</h2>
+        <p className="text-xs font-bold opacity-60">{description}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { Dado };
+export { Dado }

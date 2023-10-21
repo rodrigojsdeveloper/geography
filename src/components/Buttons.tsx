@@ -1,6 +1,6 @@
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { IButtons } from "../interfaces";
-import { Arrow } from "./Arrow";
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs'
+import { IButtons } from '../interfaces'
+import { Arrow } from './Arrow'
 
 const Buttons = ({
   disabledNextPage,
@@ -9,7 +9,7 @@ const Buttons = ({
   handlePreviousPage,
 }: IButtons) => {
   return (
-    <div className="w-full max-w-104 flex justify-between items-center mt-11 m-auto">
+    <div className="m-auto mt-11 flex w-full max-w-104 items-center justify-between">
       <Arrow
         Icon={BsArrowLeft}
         handleFunc={handlePreviousPage}
@@ -21,7 +21,7 @@ const Buttons = ({
         disabled={disabledNextPage}
       />
     </div>
-  );
-};
+  )
+}
 
-export { Buttons };
+export { Buttons }

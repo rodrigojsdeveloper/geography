@@ -1,22 +1,22 @@
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { CountryContext } from "../contexts/country.context";
-import { useContext, useState, useEffect } from "react";
-import { BiWorld } from "react-icons/bi";
-import { Link } from "./Link";
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
+import { CountryContext } from '../contexts/country.context'
+import { useContext, useState, useEffect } from 'react'
+import { BiWorld } from 'react-icons/bi'
+import { Link } from './Link'
 
 const Header = () => {
-  const { openModal, setOpenModal } = useContext(CountryContext);
+  const { openModal, setOpenModal } = useContext(CountryContext)
 
   const [currentUrl, setCurrentUrl] = useState<string>(
-    window.location.href.split("/")[3]
-  );
+    window.location.href.split('/')[3],
+  )
 
   useEffect(() => {
-    setCurrentUrl(window.location.href.split("/")[3]);
-  }, []);
+    setCurrentUrl(window.location.href.split('/')[3])
+  }, [])
 
   return (
-    <header className="w-full max-w-1300 flex justify-between items-center m-auto">
+    <header className="m-auto flex w-full max-w-1300 items-center justify-between">
       <a href="/">
         <BiWorld size={36} color="#00875F" />
       </a>
@@ -25,7 +25,7 @@ const Header = () => {
         <Link
           href="/"
           activeLink={
-            currentUrl === "" ? "text-primaryColor-1" : "text-white-1"
+            currentUrl === '' ? 'text-primaryColor-1' : 'text-white-1'
           }
         >
           Explore
@@ -33,7 +33,7 @@ const Header = () => {
         <Link
           href="/practice"
           activeLink={
-            currentUrl === "practice" ? "text-primaryColor-1" : "text-white-1"
+            currentUrl === 'practice' ? 'text-primaryColor-1' : 'text-white-1'
           }
         >
           Practice
@@ -41,7 +41,7 @@ const Header = () => {
         <Link
           href="/favorites"
           activeLink={
-            currentUrl === "favorites" ? "text-primaryColor-1" : "text-white-1"
+            currentUrl === 'favorites' ? 'text-primaryColor-1' : 'text-white-1'
           }
         >
           Favorites
@@ -50,25 +50,25 @@ const Header = () => {
 
       <AiOutlineMenu
         size={25}
-        className={`cursor-pointer hidden max-768:flex ${
-          openModal ? "max-768:hidden" : "max-768:flex"
+        className={`hidden cursor-pointer max-768:flex ${
+          openModal ? 'max-768:hidden' : 'max-768:flex'
         }`}
         onClick={() => setOpenModal(true)}
       />
 
       {openModal ? (
-        <div className="w-full h-236 fixed top-0 left-0 z-50 flex flex-col bg-shadow backdrop-blur-sm py-5">
+        <div className="fixed left-0 top-0 z-50 flex h-236 w-full flex-col bg-shadow py-5 backdrop-blur-sm">
           <AiOutlineClose
             size={25}
-            className="cursor-pointer absolute top-5 right-4"
+            className="absolute right-4 top-5 cursor-pointer"
             onClick={() => setOpenModal(false)}
           />
 
-          <nav className="w-full h-200 flex flex-col justify-between items-center mt-4">
+          <nav className="mt-4 flex h-200 w-full flex-col items-center justify-between">
             <Link
               href="/"
               activeLink={
-                currentUrl === "" ? "text-primaryColor-1" : "text-white-1"
+                currentUrl === '' ? 'text-primaryColor-1' : 'text-white-1'
               }
             >
               Explore
@@ -76,9 +76,9 @@ const Header = () => {
             <Link
               href="/practice"
               activeLink={
-                currentUrl === "practice"
-                  ? "text-primaryColor-1"
-                  : "text-white-1"
+                currentUrl === 'practice'
+                  ? 'text-primaryColor-1'
+                  : 'text-white-1'
               }
             >
               Practice
@@ -86,9 +86,9 @@ const Header = () => {
             <Link
               href="/favorites"
               activeLink={
-                currentUrl === "favorites"
-                  ? "text-primaryColor-1"
-                  : "text-white-1"
+                currentUrl === 'favorites'
+                  ? 'text-primaryColor-1'
+                  : 'text-white-1'
               }
             >
               Favorites
@@ -97,7 +97,7 @@ const Header = () => {
         </div>
       ) : null}
     </header>
-  );
-};
+  )
+}
 
-export { Header };
+export { Header }

@@ -1,9 +1,9 @@
-import { PageCountryDetails } from "../pages/PageCountryDetails";
-import { Routes, Route } from "react-router-dom";
-import { Favorites } from "../pages/Favorites";
-import { Practice } from "../pages/Practice";
-import { NotFound } from "../pages/NotFound";
-import { Home } from "../pages/Home";
+import { PageCountryDetails } from '../pages/PageCountryDetails'
+import { Routes, Route } from 'react-router-dom'
+import { Favorites } from '../pages/Favorites'
+import { Practice } from '../pages/Practice'
+import { NotFound } from '../pages/NotFound'
+import { Home } from '../pages/Home'
 
 const AllRoutes = () => {
   return (
@@ -14,7 +14,7 @@ const AllRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-  );
-};
+  )
+}
 
-export { AllRoutes };
+export { AllRoutes }

@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios'
 
 const api = axios.create({
-  baseURL: "https://restcountries.com/v3.1/",
+  baseURL: 'https://restcountries.com/v3.1/',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
-});
+})
 
-export { api };
+export { api }

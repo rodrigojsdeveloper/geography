@@ -1,32 +1,32 @@
-import { CountryContext } from "../contexts/country.context";
-import { useContext, useState, useEffect } from "react";
-import { Country } from "../components/Country";
-import { Answer } from "../components/Answer";
-import { ICountryProps } from "../interfaces";
-import { Title } from "../components/Title";
-import { Layout } from "./Layout";
+import { CountryContext } from '../contexts/country.context'
+import { useContext, useState, useEffect } from 'react'
+import { Country } from '../components/Country'
+import { Answer } from '../components/Answer'
+import { ICountryProps } from '../interfaces'
+import { Title } from '../components/Title'
+import { Layout } from './Layout'
 
 const Practice = () => {
-  const { countries } = useContext(CountryContext);
+  const { countries } = useContext(CountryContext)
 
-  const [sortedCountries, setSortedCountries] = useState<ICountryProps[]>([]);
+  const [sortedCountries, setSortedCountries] = useState<ICountryProps[]>([])
 
-  const [country, setCountry] = useState<ICountryProps>({} as ICountryProps);
+  const [country, setCountry] = useState<ICountryProps>({} as ICountryProps)
 
   useEffect(() => {
     for (let i = countries.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [countries[i], countries[j]] = [countries[j], countries[i]];
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[countries[i], countries[j]] = [countries[j], countries[i]]
     }
 
-    setSortedCountries(countries);
-    setCountry(sortedCountries[0]);
-  }, [countries, sortedCountries]);
+    setSortedCountries(countries)
+    setCountry(sortedCountries[0])
+  }, [countries, sortedCountries])
 
   return (
     <Layout>
       <Title title="What is the name of this country?" />
-      <div className="w-full max-w-1200 flex justify-between items-center m-auto max-1024:flex-col">
+      <div className="m-auto flex w-full max-w-1200 items-center justify-between max-1024:flex-col">
         <Country country={country} />
         <Answer
           country={country}
@@ -37,7 +37,7 @@ const Practice = () => {
         />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export { Practice };
+export { Practice }
