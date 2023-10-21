@@ -30,3 +30,7 @@ body {
   background: #9a9898;
   border-radius: 0.5px;
 }
+
+::selection {
+  background-color: rgb(0, 135, 95, 0.1);
+}

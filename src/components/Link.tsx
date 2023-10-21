@@ -8,7 +8,7 @@ const Link = ({ href, children, activeLink }: PropsWithChildren<ILink>) => {
   return (
     <p
       onClick={() => navigate(href)}
-      className={`font-medium text-base no-underline p-3 transition-all ease-in duration-300 rounded-def cursor-pointer ${activeLink} hover:text-primary-color-1`}
+      className={`font-medium text-base no-underline p-3 transition-all ease-in duration-300 rounded-def cursor-pointer ${activeLink} hover:text-primaryColor-1`}
     >
       {children}
     </p>

@@ -125,7 +125,7 @@ const Answer = ({
         </div>
 
         <button
-          className="w-full h-40 bg-primary-color-1 rounded-def transition-all ease-in duration-300 hover:bg-primary-color-2 active:bg-primary-color-3 disabled:cursor-default disabled:opacity-50"
+          className="w-full h-40 bg-primaryColor-1 rounded-def transition-all ease-in duration-300 hover:bg-primaryColor-2 active:bg-primaryColor-3 disabled:cursor-default disabled:opacity-50"
           type="submit"
           disabled={count === 0 || rightCountry ? true : false}
         >

@@ -19,7 +19,7 @@ export default {
         white: {
           1: "#F2F2F2",
         },
-        "primary-color": {
+        primaryColor: {
           1: "#00875F",
           2: "rgb(0, 135, 95, 0.6)",
           3: "rgb(0, 135, 95, 0.40)",

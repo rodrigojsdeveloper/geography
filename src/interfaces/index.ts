@@ -95,10 +95,10 @@ export interface ICountriesPractice {
 }
 
 export interface ICountryContextData {
-  countries: Array<ICountryProps>;
-  filteredCountries: Array<ICountryProps>;
-  filteredFavorites: Array<ICountryProps>;
-  favorites: Array<ICountryProps>;
+  countries: ICountryProps[];
+  filteredCountries: ICountryProps[];
+  filteredFavorites: ICountryProps[];
+  favorites: ICountryProps[];
   setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>;
   handleSearchCountry: (name: string) => void;
   handleSelectContinents: (region: string) => void;
@@ -116,8 +116,8 @@ export interface ICountryContextData {
   setDisabledPreviousPage: React.Dispatch<React.SetStateAction<boolean>>;
   currentPage: number;
   countriesPerPage: number;
-  paginatedCountries: Array<ICountryProps>;
-  paginatedFavorites: Array<ICountryProps>;
+  paginatedCountries: ICountryProps[];
+  paginatedFavorites: ICountryProps[];
   options: string[]
   option: string
   setOption: React.Dispatch<React.SetStateAction<string>>;
@@ -129,7 +129,7 @@ export interface ICountryContextData {
 export interface IDado {
   Icon: IconType;
   title: string;
-  description?: string;
+  description?: string[];
 }
 
 export interface ITitle {

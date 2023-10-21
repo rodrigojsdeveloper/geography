@@ -73,5 +73,5 @@ https://geography-plus.vercel.app/
 ```
 
 <br/>
-<p align="center">Developed by <a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva/">Rodrigo Silva</a>
+<p align="center">Developed by <a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva/" style="text-decoration: none;">Rodrigo Silva</a>
 </p>

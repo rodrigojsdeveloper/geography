@@ -25,7 +25,7 @@ const Header = () => {
         <Link
           href="/"
           activeLink={
-            currentUrl === "" ? "text-primary-color-1" : "text-white-1"
+            currentUrl === "" ? "text-primaryColor-1" : "text-white-1"
           }
         >
           Explore
@@ -33,7 +33,7 @@ const Header = () => {
         <Link
           href="/practice"
           activeLink={
-            currentUrl === "practice" ? "text-primary-color-1" : "text-white-1"
+            currentUrl === "practice" ? "text-primaryColor-1" : "text-white-1"
           }
         >
           Practice
@@ -41,7 +41,7 @@ const Header = () => {
         <Link
           href="/favorites"
           activeLink={
-            currentUrl === "favorites" ? "text-primary-color-1" : "text-white-1"
+            currentUrl === "favorites" ? "text-primaryColor-1" : "text-white-1"
           }
         >
           Favorites
@@ -68,7 +68,7 @@ const Header = () => {
             <Link
               href="/"
               activeLink={
-                currentUrl === "" ? "text-primary-color-1" : "text-white-1"
+                currentUrl === "" ? "text-primaryColor-1" : "text-white-1"
               }
             >
               Explore
@@ -77,7 +77,7 @@ const Header = () => {
               href="/practice"
               activeLink={
                 currentUrl === "practice"
-                  ? "text-primary-color-1"
+                  ? "text-primaryColor-1"
                   : "text-white-1"
               }
             >
@@ -87,7 +87,7 @@ const Header = () => {
               href="/favorites"
               activeLink={
                 currentUrl === "favorites"
-                  ? "text-primary-color-1"
+                  ? "text-primaryColor-1"
                   : "text-white-1"
               }
             >
