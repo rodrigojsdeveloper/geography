@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { PropsWithChildren } from "react"
 import { ILink } from "../interfaces";
 
-const Link = ({ href, children, activeLink }: ILink) => {
+const Link = ({ href, children, activeLink }: PropsWithChildren<ILink>) => {
   const navigate = useNavigate();
 
   return (

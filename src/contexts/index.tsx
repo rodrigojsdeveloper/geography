@@ -1,7 +1,7 @@
 import { CountryContextProvider } from "./country.context";
-import { IChildren } from "../interfaces";
+import { PropsWithChildren } from "react";
 
-const Providers = ({ children }: IChildren) => {
+const Providers = ({ children }: PropsWithChildren) => {
   return <CountryContextProvider>{children}</CountryContextProvider>;
 };
 

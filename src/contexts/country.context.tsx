@@ -1,10 +1,10 @@
-import { ICountryProps, ICountryContextData, IChildren } from "../interfaces";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, PropsWithChildren } from "react";
+import { ICountryProps, ICountryContextData } from "../interfaces";
 import { api } from "../services/api";
 
 export const CountryContext = createContext({} as ICountryContextData);
 
-export const CountryContextProvider = ({ children }: IChildren) => {
+export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   const [loaded, setLoaded] = useState<boolean>(false);

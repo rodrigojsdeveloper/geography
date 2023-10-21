@@ -60,7 +60,6 @@ docker images | grep dockerized-react
 # Run the image in detached mode and map port 5173 inside the container with 5173 on the current host
 
 docker run -p 5173:5173 -d dockerized-react
-
 ```
 
 The -d flag runs the project in the background, freeing up the terminal for other uses.
@@ -70,7 +69,7 @@ The -d flag runs the project in the background, freeing up the terminal for othe
 You can access the Geography application at the following link:
 
 ```
-https://geography-beta.vercel.app/
+https://geography-plus.vercel.app/
 ```
 
 <br/>

@@ -1,10 +1,9 @@
 import { CountryContext } from "../contexts/country.context";
+import { useContext, PropsWithChildren } from "react";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { IChildren } from "../interfaces";
-import { useContext } from "react";
 
-const Layout = ({ children }: IChildren) => {
+const Layout = ({ children }: PropsWithChildren) => {
   const { setOpenModal } = useContext(CountryContext);
 
   return (

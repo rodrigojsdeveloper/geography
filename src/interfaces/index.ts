@@ -1,10 +1,5 @@
-export interface IChildren {
-  children: React.ReactNode;
-  onClick?: any;
-  style?: React.CSSProperties | undefined;
-}
-
-export interface ILink extends IChildren {
+import { IconType } from "react-icons"
+export interface ILink {
   href: string;
   activeLink: string;
 }
@@ -132,9 +127,9 @@ export interface ICountryContextData {
 }
 
 export interface IDado {
-  Icon: any;
+  Icon: IconType;
   title: string;
-  description?: any;
+  description?: string;
 }
 
 export interface ITitle {
@@ -150,7 +145,7 @@ export interface IEmptyMessage {
 }
 
 export interface IArrow {
-  Icon: any;
+  Icon: IconType;
   handleFunc: () => void;
   disabled: boolean;
 }
