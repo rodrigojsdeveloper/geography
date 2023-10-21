@@ -1,0 +1,13 @@
+# Ignore specific files
+dist/
+build/
+
+# Ignore files with a specific extension
+*.md
+
+# Ignore entire directories
+node_modules/
+bower_components/
+
+# Ignore a Prettier configuration file
+.prettier.config.cjs

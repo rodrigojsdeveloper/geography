@@ -1,0 +1,11 @@
+# Specific files to be ignored
+dist/
+build/
+
+# Directories to be ignored
+node_modules/
+bower_components/
+
+# Ignore configuration files
+.eslintrc.json
+.prettier.config.cjs
