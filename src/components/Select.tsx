@@ -1,33 +1,40 @@
 import { CountryContext } from "../contexts/country.context";
-import { ChangeEvent, useContext } from "react";
 import { ISelect } from "../interfaces";
+import { useContext } from "react";
+import { Option } from "./Option";
 
 const Select = ({ disabled }: ISelect) => {
-  const { handleSelectContinents, handleSelectContinentsFavorites } =
+  const { options, option, closeSelect, setCloseSelect } =
     useContext(CountryContext);
 
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const selectedRegion = event.target.value;
-    handleSelectContinents(selectedRegion);
-    handleSelectContinentsFavorites(selectedRegion);
-  };
-
   return (
-    <select
-      className="w-full max-w-167 h-45 bg-grey-2 outline-none cursor-pointer py-2 px-3 rounded-def appearance-none bg-arrow bg-no-repeat bg-right-4 focus:bg-arrowClick disabled:cursor-default disabled:opacity-50"
-      onChange={handleSelectChange}
-      disabled={disabled}
-      defaultValue={"Filter by region"}
+    <div
+      className={`w-full max-w-167 h-45 bg-grey-2 flex ${!disabled ? "cursor-pointer" : "cursor-default opacity-60"} flex-row items-center relative py-2 rounded-def ${closeSelect ? "bg-arrowClick" : "bg-arrow"} bg-no-repeat bg-right-4`}
+      onClick={() => {
+        if(!disabled) {
+          
+        setCloseSelect(true)
+
+        if(closeSelect) {
+          setCloseSelect(false)
+        }
+      }
+      }}
     >
-      <option disabled>Filter by region</option>
-      <option value="All">All</option>
-      <option value="Africa">Africa</option>
-      <option value="Americas">Americas</option>
-      <option value="Antarctic">Antarctic</option>
-      <option value="Asia">Asia</option>
-      <option value="Europe">Europe</option>
-      <option value="Oceania">Oceania</option>
-    </select>
+      <label className={`text-sm px-3 ${!disabled ? "cursor-pointer" : "cursor-default"}`}>{option}</label>
+      {
+        closeSelect ? (
+          
+      <ul className="absolute top-12 bg-grey-2 w-full z-50 shadow-def">
+      {
+        options.map(option => (
+          <Option key={option} option={option} />
+        ))
+      }
+    </ul>
+        ) : null
+      }
+    </div>
   );
 };
 

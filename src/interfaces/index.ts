@@ -123,6 +123,12 @@ export interface ICountryContextData {
   countriesPerPage: number;
   paginatedCountries: Array<ICountryProps>;
   paginatedFavorites: Array<ICountryProps>;
+  options: string[]
+  option: string
+  setOption: React.Dispatch<React.SetStateAction<string>>;
+  closeSelect: boolean
+  setCloseSelect: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSelect: (option: string) => void
 }
 
 export interface IDado {
@@ -154,4 +160,8 @@ export interface IButtons {
   disabledPreviousPage: boolean;
   handleNextPage: () => void;
   handlePreviousPage: () => void;
+}
+
+export interface IOption {
+  option: string
 }

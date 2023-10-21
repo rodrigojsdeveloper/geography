@@ -31,6 +31,22 @@ export const CountryContextProvider = ({ children }: IChildren) => {
 
   const [disabledPreviousPage, setDisabledPreviousPage] =
     useState<boolean>(true);
+    
+  const [option, setOption] =
+  useState<string>('Filter by region');
+  
+  const [closeSelect, setCloseSelect] =
+  useState<boolean>(false);
+
+  const options: string[] = [
+    "All",
+    "Africa",
+    "Americas",
+    "Antarctic",
+    "Asia",
+    "Europe",
+    "Oceania",
+  ]
 
   useEffect(() => {
     setLoaded(true);
@@ -130,6 +146,11 @@ export const CountryContextProvider = ({ children }: IChildren) => {
       }
     });
   };
+  
+  const handleSelect = (option: string) => {
+    handleSelectContinents(option);
+    handleSelectContinentsFavorites(option);
+  };
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favorites");
@@ -187,6 +208,12 @@ export const CountryContextProvider = ({ children }: IChildren) => {
         countriesPerPage,
         paginatedCountries,
         paginatedFavorites,
+        options,
+        option,
+        setOption,
+        closeSelect,
+        setCloseSelect,
+        handleSelect
       }}
     >
       {children}

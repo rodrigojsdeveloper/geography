@@ -81,6 +81,9 @@ export default {
         5: "5px",
         20: "-20px",
       },
+      boxShadow: {
+        def: '0px 4px 30px 0px #00000040',
+      },
     },
   },
   plugins: [],
