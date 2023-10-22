@@ -1,10 +1,10 @@
 import { CountryContext } from '../contexts/country.context'
 import { useContext, useState, useEffect } from 'react'
-import { Country } from '../components/Country'
-import { Answer } from '../components/Answer'
 import { ICountryProps } from '../interfaces'
-import { Title } from '../components/Title'
-import { Layout } from './Layout'
+import Country from '../components/Country'
+import Answer from '../components/Answer'
+import Title from '../components/Title'
+import Layout from '../layout'
 
 const Practice = () => {
   const { countries } = useContext(CountryContext)
@@ -40,4 +40,4 @@ const Practice = () => {
   )
 }
 
-export { Practice }
+export default Practice

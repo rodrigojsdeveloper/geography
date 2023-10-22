@@ -54,4 +54,4 @@ const Card = ({ country }: ICountry) => {
   )
 }
 
-export { Card }
+export default Card

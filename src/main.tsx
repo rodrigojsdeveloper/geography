@@ -1,7 +1,7 @@
-import { Providers } from './contexts/index.tsx'
 import { BrowserRouter } from 'react-router-dom'
+import Providers from './contexts/index.tsx'
 import ReactDOM from 'react-dom/client'
-import { App } from './App.tsx'
+import App from './App.tsx'
 import React from 'react'
 import './index.css'
 

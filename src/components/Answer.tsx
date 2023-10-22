@@ -134,4 +134,4 @@ const Answer = ({
   )
 }
 
-export { Answer }
+export default Answer

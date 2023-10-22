@@ -1,10 +1,10 @@
-import { CountryDetails } from '../components/CountryDetails'
 import { CountryContext } from '../contexts/country.context'
+import CountryDetails from '../components/CountryDetails'
 import { useState, useEffect, useContext } from 'react'
 import { ICountryProps } from '../interfaces'
-import { Loaded } from '../components/Loaded'
 import { useParams } from 'react-router-dom'
-import { Layout } from './Layout'
+import Loading from '../components/Loading'
+import Layout from '../layout'
 
 const PageCountryDetails = () => {
   const { countryName } = useParams()
@@ -45,9 +45,9 @@ const PageCountryDetails = () => {
 
   return (
     <Layout>
-      {loaded ? <Loaded /> : <CountryDetails country={country} />}
+      {loaded ? <Loading /> : <CountryDetails country={country} />}
     </Layout>
   )
 }
 
-export { PageCountryDetails }
+export default PageCountryDetails

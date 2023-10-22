@@ -1,7 +1,7 @@
 import { PiGlobeStandBold } from 'react-icons/pi'
 import { ICountry } from '../interfaces'
 import { GoHome } from 'react-icons/go'
-import { Dado } from './Dado'
+import Dado from './Dado'
 
 const Country = ({ country }: ICountry) => {
   return (
@@ -26,4 +26,4 @@ const Country = ({ country }: ICountry) => {
   )
 }
 
-export { Country }
+export default Country

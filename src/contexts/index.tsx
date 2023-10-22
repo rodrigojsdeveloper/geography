@@ -5,4 +5,4 @@ const Providers = ({ children }: PropsWithChildren) => {
   return <CountryContextProvider>{children}</CountryContextProvider>
 }
 
-export { Providers }
+export default Providers

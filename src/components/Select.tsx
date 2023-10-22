@@ -1,7 +1,7 @@
 import { CountryContext } from '../contexts/country.context'
 import { ISelect } from '../interfaces'
 import { useContext } from 'react'
-import { Option } from './Option'
+import Option from './Option'
 
 const Select = ({ disabled }: ISelect) => {
   const { options, option, closeSelect, setCloseSelect } =
@@ -42,4 +42,4 @@ const Select = ({ disabled }: ISelect) => {
   )
 }
 
-export { Select }
+export default Select

@@ -22,4 +22,4 @@ const Layout = ({ children }: PropsWithChildren) => {
   )
 }
 
-export { Layout }
+export default Layout

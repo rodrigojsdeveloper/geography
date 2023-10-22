@@ -6,7 +6,7 @@ import { ICountry } from '../interfaces'
 import { BiArea } from 'react-icons/bi'
 import { FiFlag } from 'react-icons/fi'
 import { useContext } from 'react'
-import { Dado } from './Dado'
+import Dado from './Dado'
 
 const CountryDetails = ({ country }: ICountry) => {
   const { favoriteCountryNames, toggleFavoriteCountry } =
@@ -91,4 +91,4 @@ const CountryDetails = ({ country }: ICountry) => {
   )
 }
 
-export { CountryDetails }
+export default CountryDetails

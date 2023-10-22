@@ -13,4 +13,4 @@ const Dado = ({ title, description, Icon }: IDado) => {
   )
 }
 
-export { Dado }
+export default Dado

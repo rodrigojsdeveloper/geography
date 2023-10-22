@@ -4,4 +4,4 @@ const EmptyMessage = ({ message }: IEmptyMessage) => {
   return <p className="text-base font-medium">{message}</p>
 }
 
-export { EmptyMessage }
+export default EmptyMessage

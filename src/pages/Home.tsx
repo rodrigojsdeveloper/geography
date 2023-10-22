@@ -1,6 +1,6 @@
-import { SubHeader } from '../components/SubHeader'
-import { List } from '../components/List'
-import { Layout } from './Layout'
+import SubHeader from '../components/SubHeader'
+import List from '../components/List'
+import Layout from '../layout'
 
 const Home = () => {
   return (
@@ -11,4 +11,4 @@ const Home = () => {
   )
 }
 
-export { Home }
+export default Home

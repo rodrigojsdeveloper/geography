@@ -1,9 +1,9 @@
 import { CountryContext } from '../contexts/country.context'
-import { EmptyMessage } from './EmptyMessage'
 import { useContext, useEffect } from 'react'
-import { Buttons } from './Buttons'
-import { Loaded } from './Loaded'
-import { Card } from './Card'
+import EmptyMessage from './EmptyMessage'
+import Buttons from './Buttons'
+import Loading from './Loading'
+import Card from './Card'
 
 const ListFavorites = () => {
   const {
@@ -30,7 +30,7 @@ const ListFavorites = () => {
   return (
     <div className="w-full">
       {loaded ? (
-        <Loaded />
+        <Loading />
       ) : filteredFavorites.length > 0 ? (
         <>
           <menu className="grid w-full auto-rows-1fr grid-cols-3 gap-6 max-1024:grid-cols-2 max-768:grid-cols-1">
@@ -52,4 +52,4 @@ const ListFavorites = () => {
   )
 }
 
-export { ListFavorites }
+export default ListFavorites

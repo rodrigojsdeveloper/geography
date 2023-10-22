@@ -1,7 +1,7 @@
 import { CountryContext } from '../contexts/country.context'
 import { useContext } from 'react'
-import { Select } from './Select'
-import { Title } from './Title'
+import Select from './Select'
+import Title from './Title'
 
 const SubHeaderFavorites = () => {
   const { favorites } = useContext(CountryContext)
@@ -17,4 +17,4 @@ const SubHeaderFavorites = () => {
   )
 }
 
-export { SubHeaderFavorites }
+export default SubHeaderFavorites

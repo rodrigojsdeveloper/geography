@@ -12,4 +12,4 @@ const Arrow = ({ Icon, handleFunc, disabled }: IArrow) => {
   )
 }
 
-export { Arrow }
+export default Arrow

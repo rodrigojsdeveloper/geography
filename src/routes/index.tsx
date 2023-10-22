@@ -1,9 +1,9 @@
-import { PageCountryDetails } from '../pages/PageCountryDetails'
+import PageCountryDetails from '../pages/PageCountryDetails'
 import { Routes, Route } from 'react-router-dom'
-import { Favorites } from '../pages/Favorites'
-import { Practice } from '../pages/Practice'
-import { NotFound } from '../pages/NotFound'
-import { Home } from '../pages/Home'
+import Favorites from '../pages/Favorites'
+import Practice from '../pages/Practice'
+import NotFound from '../pages/NotFound'
+import Home from '../pages/Home'
 
 const AllRoutes = () => {
   return (
@@ -17,4 +17,4 @@ const AllRoutes = () => {
   )
 }
 
-export { AllRoutes }
+export default AllRoutes

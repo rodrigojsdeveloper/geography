@@ -2,7 +2,7 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { CountryContext } from '../contexts/country.context'
 import { useContext, useState, useEffect } from 'react'
 import { BiWorld } from 'react-icons/bi'
-import { Link } from './Link'
+import Link from './Link'
 
 const Header = () => {
   const { openModal, setOpenModal } = useContext(CountryContext)
@@ -100,4 +100,4 @@ const Header = () => {
   )
 }
 
-export { Header }
+export default Header

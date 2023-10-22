@@ -1,6 +1,6 @@
-import { Input } from './Input'
-import { Select } from './Select'
-import { Title } from './Title'
+import Select from './Select'
+import Input from './Input'
+import Title from './Title'
 
 const SubHeader = () => {
   return (
@@ -15,4 +15,4 @@ const SubHeader = () => {
   )
 }
 
-export { SubHeader }
+export default SubHeader

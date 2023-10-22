@@ -1,6 +1,6 @@
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs'
 import { IButtons } from '../interfaces'
-import { Arrow } from './Arrow'
+import Arrow from './Arrow'
 
 const Buttons = ({
   disabledNextPage,
@@ -24,4 +24,4 @@ const Buttons = ({
   )
 }
 
-export { Buttons }
+export default Buttons

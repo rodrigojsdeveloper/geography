@@ -1,5 +1,5 @@
-import { AllRoutes } from './routes'
+import AllRoutes from './routes'
 
 const App = () => <AllRoutes />
 
-export { App }
+export default App

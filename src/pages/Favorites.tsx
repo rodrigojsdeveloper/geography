@@ -1,6 +1,6 @@
-import { SubHeaderFavorites } from '../components/SubHeaderFavorites'
-import { ListFavorites } from '../components/ListFavorites'
-import { Layout } from './Layout'
+import SubHeaderFavorites from '../components/SubHeaderFavorites'
+import ListFavorites from '../components/ListFavorites'
+import Layout from '../layout'
 
 const Favorites = () => {
   return (
@@ -11,4 +11,4 @@ const Favorites = () => {
   )
 }
 
-export { Favorites }
+export default Favorites

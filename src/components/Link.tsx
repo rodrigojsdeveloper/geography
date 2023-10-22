@@ -15,4 +15,4 @@ const Link = ({ href, children, activeLink }: PropsWithChildren<ILink>) => {
   )
 }
 
-export { Link }
+export default Link

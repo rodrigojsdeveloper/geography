@@ -8,4 +8,4 @@ const Title = ({ title }: ITitle) => {
   )
 }
 
-export { Title }
+export default Title

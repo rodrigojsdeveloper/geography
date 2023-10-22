@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
 import { ICountryProps, ICountryContextData } from '../interfaces'
-import { api } from '../services/api'
+import api from '../services/api'
 
-export const CountryContext = createContext({} as ICountryContextData)
+const CountryContext = createContext({} as ICountryContextData)
 
-export const CountryContextProvider = ({ children }: PropsWithChildren) => {
+const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const [openModal, setOpenModal] = useState<boolean>(false)
 
   const [loaded, setLoaded] = useState<boolean>(false)
@@ -216,3 +216,5 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     </CountryContext.Provider>
   )
 }
+
+export { CountryContext, CountryContextProvider }

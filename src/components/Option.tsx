@@ -19,4 +19,4 @@ const Option = ({ option }: IOption) => {
   )
 }
 
-export { Option }
+export default Option
