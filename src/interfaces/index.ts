@@ -2,6 +2,7 @@ import { IconType } from 'react-icons'
 export interface ILink {
   href: string
   activeLink: string
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface ICountryProps {
@@ -148,6 +149,7 @@ export interface IArrow {
   Icon: IconType
   handleFunc: () => void
   disabled: boolean
+  ariaLabel: string
 }
 
 export interface IButtons {

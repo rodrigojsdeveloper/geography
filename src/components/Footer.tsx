@@ -9,6 +9,7 @@ const Footer = () => {
             Geography 2023
           </small>
           <button
+            aria-label="arrow-top"
             onClick={() => window.scroll({ top: 0 })}
             className="ml-6 flex h-43 w-43 items-center justify-center rounded-def border-2 border-solid border-grey-2 bg-grey-2 transition-all duration-300 ease-in hover:bg-grey-1 max-768:mt-20"
           >

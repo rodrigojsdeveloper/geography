@@ -12,11 +12,13 @@ const Buttons = ({
     <div className="m-auto mt-11 flex w-full max-w-104 items-center justify-between">
       <Arrow
         Icon={BsArrowLeft}
+        ariaLabel="arrow-left"
         handleFunc={handlePreviousPage}
         disabled={disabledPreviousPage}
       />
       <Arrow
         Icon={BsArrowRight}
+        ariaLabel="arrow-right"
         handleFunc={handleNextPage}
         disabled={disabledNextPage}
       />

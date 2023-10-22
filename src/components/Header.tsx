@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header className="m-auto flex w-full max-w-1300 items-center justify-between">
-      <a href="/">
+      <a href="/" aria-label="world">
         <BiWorld size={36} color="#00875F" />
       </a>
 
@@ -27,6 +27,7 @@ const Header = () => {
           activeLink={
             currentUrl === '' ? 'text-primaryColor-1' : 'text-white-1'
           }
+          setOpenModal={setOpenModal}
         >
           Explore
         </Link>
@@ -35,6 +36,7 @@ const Header = () => {
           activeLink={
             currentUrl === 'practice' ? 'text-primaryColor-1' : 'text-white-1'
           }
+          setOpenModal={setOpenModal}
         >
           Practice
         </Link>
@@ -43,6 +45,7 @@ const Header = () => {
           activeLink={
             currentUrl === 'favorites' ? 'text-primaryColor-1' : 'text-white-1'
           }
+          setOpenModal={setOpenModal}
         >
           Favorites
         </Link>
@@ -70,6 +73,7 @@ const Header = () => {
               activeLink={
                 currentUrl === '' ? 'text-primaryColor-1' : 'text-white-1'
               }
+              setOpenModal={setOpenModal}
             >
               Explore
             </Link>
@@ -80,6 +84,7 @@ const Header = () => {
                   ? 'text-primaryColor-1'
                   : 'text-white-1'
               }
+              setOpenModal={setOpenModal}
             >
               Practice
             </Link>
@@ -90,6 +95,7 @@ const Header = () => {
                   ? 'text-primaryColor-1'
                   : 'text-white-1'
               }
+              setOpenModal={setOpenModal}
             >
               Favorites
             </Link>
