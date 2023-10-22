@@ -5,7 +5,7 @@ import Buttons from './Buttons'
 import Loading from './Loading'
 import Card from './Card'
 
-const List = () => {
+const ListCountries = () => {
   const {
     filteredCountries,
     loaded,
@@ -52,4 +52,4 @@ const List = () => {
   )
 }
 
-export default List
+export default ListCountries
