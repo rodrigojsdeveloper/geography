@@ -73,11 +73,7 @@ const CountryDetails = ({ country }: ICountry) => {
           </div>
 
           <div className="grid w-full justify-end gap-5">
-            <Dado
-              Icon={PiCoinsBold}
-              title="Official currency"
-              description={coin}
-            />
+            <Dado Icon={PiCoinsBold} title="Currency" description={coin} />
             <Dado Icon={GoPeople} title="Population" description={population} />
             <Dado
               Icon={FiFlag}

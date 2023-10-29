@@ -24,7 +24,6 @@ export default {
           2: 'rgb(0, 135, 95, 0.6)',
           3: 'rgb(0, 135, 95, 0.40)',
         },
-        transparent: 'transparent',
         red: '#f04242',
         orange: '#f86c49',
         green: '#4feb4f',
