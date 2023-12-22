@@ -67,7 +67,7 @@ export default {
         '1fr': 'minmax(96px,auto)',
       },
       borderRadius: {
-        def: '0px',
+        def: '6px',
       },
       backgroundImage: {
         arrow: `url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.127L12 18.127L20 10.127H4Z" fill="%23f4f4f4"/></svg>')`,

@@ -7,7 +7,7 @@ const Option = ({ option }: IOption) => {
 
   return (
     <li
-      className="p-2 text-center hover:bg-grey-3"
+      className="rounded-def p-2 text-center hover:bg-grey-3"
       onClick={() => {
         setOption(option)
         setCloseSelect(false)

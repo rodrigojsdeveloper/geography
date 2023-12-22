@@ -32,7 +32,7 @@ const Select = ({ disabled }: ISelect) => {
         {option}
       </label>
       {closeSelect ? (
-        <ul className="absolute top-12 z-50 w-full bg-grey-2 shadow-def">
+        <ul className="absolute top-12 z-50 w-full rounded-def bg-grey-2 shadow-def">
           {options.map((option) => (
             <Option key={option} option={option} />
           ))}
