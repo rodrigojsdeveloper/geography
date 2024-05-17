@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google'
 import { Providers } from '@/contexts'
 import { cn } from '@/utils/cn'
 import './globals.css'
+import { Toaster } from 'sonner'
 
 const inter = Poppins({
   subsets: ['latin'],
@@ -28,7 +29,10 @@ export default function RootLayout({
           inter.className,
         )}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Toaster richColors position="top-center" />
+          {children}
+        </Providers>
       </body>
     </html>
   )

@@ -3,6 +3,7 @@
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
 import { CountryProps, CountryContextDataProps } from '@/interfaces'
 import { api } from '@/services/api'
+import { toast } from 'sonner'
 
 export const CountryContext = createContext({} as CountryContextDataProps)
 
@@ -54,7 +55,7 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
         setCountries(data)
         setFilteredCountries(data)
       })
-      .catch((error) => console.log(error))
+      .catch(() => toast.error('Failed to fetch countries.'))
       .finally(() => setLoaded({ countries: false }))
   }
 
@@ -64,7 +65,7 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     api
       .get(`/name/${name}`)
       .then((res) => setCountry(res.data[0]))
-      .catch((error) => console.error(error))
+      .catch(() => toast.error('Failed to fetch the country.'))
       .finally(() => setLoaded({ country: false }))
   }
 
@@ -81,12 +82,12 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
       api
         .get('/all')
         .then((res) => setFilteredCountries(res.data))
-        .catch((error) => console.error(error))
+        .catch(() => toast.error('Failed to fetch countries by region.'))
     } else {
       api
         .get(`/region/${region}`)
         .then((res) => setFilteredCountries(res.data))
-        .catch((error) => console.error(error))
+        .catch(() => toast.error('Failed to fetch countries by region.'))
     }
   }
 

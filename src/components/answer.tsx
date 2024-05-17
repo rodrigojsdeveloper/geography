@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import { CountriesPracticeProps } from '@/interfaces'
+import { useCallback, useMemo, useState } from 'react'
+import { AnswerProps, CountriesPracticeProps } from '@/interfaces'
 import { useForm } from 'react-hook-form'
-import z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ChevronsRight } from 'lucide-react'
+import { answerSchema } from '@/schemas/answer'
 
 export const Answer = ({
   country,
   countries,
   setCountry,
-  sortedCountries,
   setSortedCountries,
 }: CountriesPracticeProps) => {
   const [count, setCount] = useState<number>(5)
@@ -18,18 +17,13 @@ export const Answer = ({
   const [nextMessage, setNextMessage] = useState<string>('')
   const [rightCountry, setRightCountry] = useState<boolean>(false)
   const [rightMessage, setRightMessage] = useState<string>('')
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState<string>('')
 
-  const answerSchema = z.object({
-    name: z.string().min(1, 'Enter the name of the country'),
-  })
-
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<AnswerProps>({
     resolver: zodResolver(answerSchema),
   })
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmitFunction = handleSubmit((data: any) => {
+  const onSubmitFunction = handleSubmit((data: AnswerProps) => {
     if (country?.name.common.toLowerCase() !== data.name.toLowerCase()) {
       setCount((prevCount) => {
         const updatedCount = prevCount - 1
@@ -58,6 +52,30 @@ export const Answer = ({
     }
   })
 
+  const shuffleCountries = useCallback(() => {
+    const shuffledCountries = [...countries]
+    for (let i = shuffledCountries.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[shuffledCountries[i], shuffledCountries[j]] = [
+        shuffledCountries[j],
+        shuffledCountries[i],
+      ]
+    }
+
+    setSortedCountries(shuffledCountries)
+    setCountry(shuffledCountries[0])
+    setCount(5)
+    setMessage(false)
+    setRightCountry(false)
+    setNextCountry(false)
+    setInputValue('')
+  }, [countries, setSortedCountries, setCountry])
+
+  const buttonDisabled = useMemo(
+    () => count === 0 || rightCountry,
+    [count, rightCountry],
+  )
+
   return (
     <div className="w-full max-w-[29.375rem]">
       <div className="flex items-center justify-between">
@@ -69,21 +87,7 @@ export const Answer = ({
         {nextCountry ? (
           <ChevronsRight
             className="size-7 cursor-pointer"
-            onClick={() => {
-              for (let i = countries.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1))
-                ;[countries[i], countries[j]] = [countries[j], countries[i]]
-              }
-
-              setSortedCountries(countries)
-              setCountry(sortedCountries[0])
-              setCount(5)
-              setMessage(false)
-              setRightCountry(false)
-              setNextCountry(false)
-
-              setInputValue('')
-            }}
+            onClick={shuffleCountries}
           />
         ) : (
           <ChevronsRight className="size-7 cursor-default opacity-60" />
@@ -113,9 +117,9 @@ export const Answer = ({
         </div>
 
         <button
-          className="h-10 w-full rounded-md bg-green-200 transition-all duration-300 ease-in hover:bg-green-300 active:bg-green-300 disabled:cursor-default disabled:opacity-50"
+          className="h-10 w-full rounded-md bg-green-200 transition-all duration-300 ease-in hover:bg-green-300 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-green-200"
           type="submit"
-          disabled={!!(count === 0 || rightCountry)}
+          disabled={buttonDisabled}
         >
           To check
         </button>

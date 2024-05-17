@@ -10,9 +10,7 @@ import { Answer } from '@/components/answer'
 
 export default function Practice() {
   const { countries } = useContext(CountryContext)
-
   const [sortedCountries, setSortedCountries] = useState<CountryProps[]>([])
-
   const [country, setCountry] = useState<CountryProps>({} as CountryProps)
 
   useEffect(() => {
@@ -36,7 +34,6 @@ export default function Practice() {
             country={country}
             countries={countries}
             setCountry={setCountry}
-            sortedCountries={sortedCountries}
             setSortedCountries={setSortedCountries}
           />
         </section>

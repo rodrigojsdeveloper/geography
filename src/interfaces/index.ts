@@ -98,7 +98,7 @@ export interface CardProps {
 export interface CountriesPracticeProps {
   country: CountryProps
   countries: CountryProps[]
-  sortedCountries: CountryProps[]
+  sortedCountries?: CountryProps[]
   setSortedCountries: React.Dispatch<React.SetStateAction<CountryProps[]>>
   setCountry: React.Dispatch<React.SetStateAction<CountryProps>>
 }
@@ -169,4 +169,8 @@ export interface ArrowsProps {
 
 export interface OptionProps {
   option: string
+}
+
+export interface AnswerProps {
+  name: string
 }
