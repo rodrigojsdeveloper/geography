@@ -17,7 +17,7 @@ export const Header = () => {
   }, [pathname])
 
   return (
-    <header className="mx-auto flex w-full max-w-7xl items-center justify-between">
+    <header className="flex w-full items-center justify-between">
       <Link href="/" aria-label="world">
         <Earth className="size-9 text-green-200" />
       </Link>

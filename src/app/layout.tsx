@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import { Providers } from '@/contexts'
+import { cn } from '@/utils/cn'
 import './globals.css'
 
 const inter = Poppins({
@@ -21,7 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={cn(
+          'mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 py-7',
+          inter.className,
+        )}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
