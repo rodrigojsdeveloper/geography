@@ -13,6 +13,7 @@ export default function CountryDetailsPage() {
 
   useEffect(() => {
     fetchCountry(countryName)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

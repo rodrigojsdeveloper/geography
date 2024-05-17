@@ -11,33 +11,32 @@ export const CountriesFavorites = () => {
   const {
     filteredFavorites,
     loaded,
-    disabledNextPage,
-    disabledPreviousPage,
+    disabled,
     handleNextPage,
     handlePreviousPage,
-    setDisabledNextPage,
-    setDisabledPreviousPage,
+    setDisabled,
     currentPage,
     countriesPerPage,
     paginatedFavorites,
   } = useContext(CountryContext)
 
   useEffect(() => {
-    setDisabledPreviousPage(currentPage === 1)
-    setDisabledNextPage(
-      currentPage * countriesPerPage >= filteredFavorites.length,
-    )
+    setDisabled({
+      nextPage: currentPage * countriesPerPage >= filteredFavorites.length,
+    })
+    setDisabled({ previousPage: currentPage === 1 })
   }, [
     currentPage,
     filteredFavorites,
     countriesPerPage,
-    setDisabledNextPage,
-    setDisabledPreviousPage,
+    disabled.nextPage,
+    disabled.previousPage,
+    setDisabled,
   ])
 
   return (
     <section className="w-full">
-      {loaded ? (
+      {loaded.favorites ? (
         <LoaderCircle className="m-auto mt-40 flex size-11 w-full animate-spin justify-center text-green-200" />
       ) : filteredFavorites.length > 0 ? (
         <>
@@ -46,12 +45,14 @@ export const CountriesFavorites = () => {
               <Card country={country} key={country.name.common} />
             ))}
           </menu>
-          <Arrows
-            disabledNextPage={disabledNextPage}
-            disabledPreviousPage={disabledPreviousPage}
-            handleNextPage={handleNextPage}
-            handlePreviousPage={handlePreviousPage}
-          />
+          {filteredFavorites.length >= 66 && (
+            <Arrows
+              disabledNextPage={disabled?.nextPage}
+              disabledPreviousPage={disabled?.previousPage}
+              handleNextPage={handleNextPage}
+              handlePreviousPage={handlePreviousPage}
+            />
+          )}
         </>
       ) : (
         <EmptyMessage>No favorite country found!</EmptyMessage>

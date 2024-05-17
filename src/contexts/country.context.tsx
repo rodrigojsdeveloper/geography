@@ -8,8 +8,14 @@ export const CountryContext = createContext({} as ICountryContextData)
 
 export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const [openModal, setOpenModal] = useState<boolean>(false)
-  const [loaded, setLoaded] = useState<{ country: boolean }>({
+  const [loaded, setLoaded] = useState<{
+    country?: boolean
+    countries?: boolean
+    favorites?: boolean
+  }>({
     country: true,
+    countries: true,
+    favorites: true,
   })
   const [countries, setCountries] = useState<ICountryProps[]>([])
   const [favorites, setFavorites] = useState<ICountryProps[]>([])
@@ -21,9 +27,13 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   )
   const [favoriteCountryNames, setFavoriteCountryNames] = useState<string[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const [disabledNextPage, setDisabledNextPage] = useState<boolean>(false)
-  const [disabledPreviousPage, setDisabledPreviousPage] =
-    useState<boolean>(true)
+  const [disabled, setDisabled] = useState<{
+    nextPage?: boolean
+    previousPage?: boolean
+  }>({
+    nextPage: false,
+    previousPage: true,
+  })
   const [option, setOption] = useState<string>('Filter by region')
   const [closeSelect, setCloseSelect] = useState<boolean>(false)
   const [country, setCountry] = useState<ICountryProps>({} as ICountryProps)
@@ -38,28 +48,8 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     'Oceania',
   ]
 
-  useEffect(() => {
-    setLoaded(true)
-
-    const storedFavorites = localStorage.getItem('favorites')
-
-    if (storedFavorites) {
-      const favoriteCountryNames = JSON.parse(storedFavorites)
-
-      const favoriteCountries = countries.filter((country) =>
-        favoriteCountryNames.includes(country.name.common),
-      )
-
-      setLoaded(false)
-      setFavorites(favoriteCountries)
-      setFilteredFavorites(favoriteCountries)
-    }
-
-    setLoaded(false)
-  }, [countries])
-
-  useEffect(() => {
-    setLoaded(true)
+  const fetchCountries = () => {
+    setLoaded({ countries: true })
 
     api
       .get('/all')
@@ -69,17 +59,15 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
         setFilteredCountries(data)
       })
       .catch((error) => console.log(error))
-      .finally(() => setLoaded(false))
-  }, [])
+      .finally(() => setLoaded({ countries: false }))
+  }
 
   const fetchCountry = (name: string | string[]) => {
     setLoaded({ country: true })
 
     api
       .get(`/name/${name}`)
-      .then((res) => {
-        console.log(res.data)
-        setCountry(res.data[0])})
+      .then((res) => setCountry(res.data[0]))
       .catch((error) => console.error(error))
       .finally(() => setLoaded({ country: false }))
   }
@@ -154,14 +142,6 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     handleSelectContinentsFavorites(option)
   }
 
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem('favorites')
-    if (storedFavorites) {
-      const favoriteCountryNames = JSON.parse(storedFavorites)
-      setFavoriteCountryNames(favoriteCountryNames)
-    }
-  }, [])
-
   const countriesPerPage = 66
 
   const startIndex = (currentPage - 1) * countriesPerPage
@@ -171,7 +151,7 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const paginatedFavorites = filteredFavorites.slice(startIndex, endIndex)
 
   const handleNextPage = () => {
-    if (!disabledNextPage) {
+    if (!disabled.nextPage) {
       setCurrentPage(currentPage + 1)
     }
 
@@ -179,10 +159,39 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   }
 
   const handlePreviousPage = () => {
-    if (!disabledPreviousPage) {
+    if (!disabled.previousPage) {
       setCurrentPage(currentPage - 1)
     }
   }
+
+  useEffect(() => {
+    setLoaded({ favorites: true })
+
+    const storedFavorites = localStorage.getItem('favorites')
+
+    if (storedFavorites) {
+      const favoriteCountryNames = JSON.parse(storedFavorites)
+
+      const favoriteCountries = countries.filter((country) =>
+        favoriteCountryNames.includes(country.name.common),
+      )
+
+      setFavorites(favoriteCountries)
+      setFilteredFavorites(favoriteCountries)
+    }
+
+    setLoaded({ favorites: false })
+  }, [countries])
+
+  useEffect(() => fetchCountries(), [])
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favorites')
+    if (storedFavorites) {
+      const favoriteCountryNames = JSON.parse(storedFavorites)
+      setFavoriteCountryNames(favoriteCountryNames)
+    }
+  }, [])
 
   const countryContextData: ICountryContextData = {
     countries,
@@ -198,12 +207,10 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     loaded,
     openModal,
     setOpenModal,
-    disabledNextPage,
-    disabledPreviousPage,
+    disabled,
     handleNextPage,
     handlePreviousPage,
-    setDisabledNextPage,
-    setDisabledPreviousPage,
+    setDisabled,
     currentPage,
     countriesPerPage,
     paginatedCountries,

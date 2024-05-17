@@ -108,15 +108,21 @@ export interface ICountryContextData {
   handleSelectContinentsFavorites: (continent: string) => void
   favoriteCountryNames: string[]
   toggleFavoriteCountry: (countryName: string) => void
-  loaded: { country: boolean }
+  loaded: { country?: boolean; countries?: boolean; favorites?: boolean }
   openModal: boolean
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
-  disabledNextPage: boolean
-  disabledPreviousPage: boolean
   handleNextPage: () => void
   handlePreviousPage: () => void
-  setDisabledNextPage: React.Dispatch<React.SetStateAction<boolean>>
-  setDisabledPreviousPage: React.Dispatch<React.SetStateAction<boolean>>
+  disabled: {
+    nextPage?: boolean
+    previousPage?: boolean
+  }
+  setDisabled: React.Dispatch<
+    React.SetStateAction<{
+      nextPage?: boolean
+      previousPage?: boolean
+    }>
+  >
   currentPage: number
   countriesPerPage: number
   paginatedCountries: ICountryProps[]
@@ -152,13 +158,13 @@ export interface IEmptyMessage {
 export interface IArrow {
   Icon: LucideIcon
   handleFunc: () => void
-  disabled: boolean
+  disabled?: boolean
   ariaLabel: string
 }
 
 export interface IButtons {
-  disabledNextPage: boolean
-  disabledPreviousPage: boolean
+  disabledNextPage?: boolean
+  disabledPreviousPage?: boolean
   handleNextPage: () => void
   handlePreviousPage: () => void
 }

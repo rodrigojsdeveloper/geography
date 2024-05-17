@@ -11,33 +11,32 @@ export const Countries = () => {
   const {
     filteredCountries,
     loaded,
-    disabledNextPage,
-    disabledPreviousPage,
+    disabled,
     handleNextPage,
     handlePreviousPage,
-    setDisabledNextPage,
-    setDisabledPreviousPage,
+    setDisabled,
     currentPage,
     countriesPerPage,
     paginatedCountries,
   } = useContext(CountryContext)
 
   useEffect(() => {
-    setDisabledPreviousPage(currentPage === 1)
-    setDisabledNextPage(
-      currentPage * countriesPerPage >= filteredCountries.length,
-    )
+    setDisabled({
+      nextPage: currentPage * countriesPerPage >= filteredCountries.length,
+    })
+    setDisabled({ previousPage: currentPage === 1 })
   }, [
     currentPage,
     filteredCountries,
     countriesPerPage,
-    setDisabledNextPage,
-    setDisabledPreviousPage,
+    disabled.nextPage,
+    disabled.previousPage,
+    setDisabled,
   ])
 
   return (
     <section className="w-full">
-      {loaded ? (
+      {loaded.countries ? (
         <LoaderCircle className="m-auto mt-40 flex size-11 w-full animate-spin justify-center text-green-200" />
       ) : filteredCountries.length > 0 ? (
         <>
@@ -47,8 +46,8 @@ export const Countries = () => {
             ))}
           </menu>
           <Arrows
-            disabledNextPage={disabledNextPage}
-            disabledPreviousPage={disabledPreviousPage}
+            disabledNextPage={disabled.nextPage}
+            disabledPreviousPage={disabled.previousPage}
             handleNextPage={handleNextPage}
             handlePreviousPage={handlePreviousPage}
           />
