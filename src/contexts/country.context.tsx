@@ -8,33 +8,25 @@ export const CountryContext = createContext({} as ICountryContextData)
 
 export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const [openModal, setOpenModal] = useState<boolean>(false)
-
-  const [loaded, setLoaded] = useState<boolean>(false)
-
+  const [loaded, setLoaded] = useState<{ country: boolean }>({
+    country: true,
+  })
   const [countries, setCountries] = useState<ICountryProps[]>([])
-
   const [favorites, setFavorites] = useState<ICountryProps[]>([])
-
   const [filteredCountries, setFilteredCountries] = useState<ICountryProps[]>(
     [],
   )
-
   const [filteredFavorites, setFilteredFavorites] = useState<ICountryProps[]>(
     [],
   )
-
   const [favoriteCountryNames, setFavoriteCountryNames] = useState<string[]>([])
-
   const [currentPage, setCurrentPage] = useState<number>(1)
-
   const [disabledNextPage, setDisabledNextPage] = useState<boolean>(false)
-
   const [disabledPreviousPage, setDisabledPreviousPage] =
     useState<boolean>(true)
-
   const [option, setOption] = useState<string>('Filter by region')
-
   const [closeSelect, setCloseSelect] = useState<boolean>(false)
+  const [country, setCountry] = useState<ICountryProps>({} as ICountryProps)
 
   const options: string[] = [
     'All',
@@ -70,7 +62,7 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     setLoaded(true)
 
     api
-      .get('all')
+      .get('/all')
       .then((res) => {
         const data = res.data
         setCountries(data)
@@ -79,6 +71,18 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
       .catch((error) => console.log(error))
       .finally(() => setLoaded(false))
   }, [])
+
+  const fetchCountry = (name: string | string[]) => {
+    setLoaded({ country: true })
+
+    api
+      .get(`/name/${name}`)
+      .then((res) => {
+        console.log(res.data)
+        setCountry(res.data[0])})
+      .catch((error) => console.error(error))
+      .finally(() => setLoaded({ country: false }))
+  }
 
   const handleSearchCountry = (name: string) => {
     setFilteredCountries(
@@ -91,12 +95,12 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const handleSelectContinents = (region: string) => {
     if (region === 'All') {
       api
-        .get('all')
+        .get('/all')
         .then((res) => setFilteredCountries(res.data))
         .catch((error) => console.error(error))
     } else {
       api
-        .get(`region/${region}`)
+        .get(`/region/${region}`)
         .then((res) => setFilteredCountries(res.data))
         .catch((error) => console.error(error))
     }
@@ -210,6 +214,8 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     closeSelect,
     setCloseSelect,
     handleSelect,
+    country,
+    fetchCountry,
   }
 
   return (

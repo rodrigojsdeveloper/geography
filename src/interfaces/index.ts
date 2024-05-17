@@ -25,7 +25,8 @@ export interface ICountryProps {
   independent: boolean
   status: string
   unMember: boolean
-  currencies: unknown
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  currencies: any
   idd: {
     root: string
     suffixes: string[]
@@ -107,7 +108,7 @@ export interface ICountryContextData {
   handleSelectContinentsFavorites: (continent: string) => void
   favoriteCountryNames: string[]
   toggleFavoriteCountry: (countryName: string) => void
-  loaded: boolean
+  loaded: { country: boolean }
   openModal: boolean
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
   disabledNextPage: boolean
@@ -126,6 +127,8 @@ export interface ICountryContextData {
   closeSelect: boolean
   setCloseSelect: React.Dispatch<React.SetStateAction<boolean>>
   handleSelect: (option: string) => void
+  country: ICountryProps
+  fetchCountry: (name: string | string[]) => void
 }
 
 export interface IDado {
