@@ -1,0 +1,14 @@
+# Ignore build or compilation files
+dist/
+build/
+
+# Ignore dependency directories
+node_modules/
+bower_components/
+
+# Ignore specific configuration files
+.eslintrc.json
+.prettier.config.js
+
+# Ignore specific Next.js directories
+.next/
