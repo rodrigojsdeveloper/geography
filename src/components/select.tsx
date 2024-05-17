@@ -1,11 +1,11 @@
 'use client'
 
+import { useContext } from 'react'
+import { ChevronDown } from 'lucide-react'
 import { CountryContext } from '@/contexts/country.context'
 import { ISelect } from '@/interfaces'
-import { useContext } from 'react'
 import { Option } from './option'
 import { cn } from '@/utils/cn'
-import { ChevronDown } from 'lucide-react'
 
 export const Select = ({ disabled }: ISelect) => {
   const { options, option, closeSelect, setCloseSelect } =

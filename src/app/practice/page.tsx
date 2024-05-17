@@ -1,12 +1,12 @@
 'use client'
 
-import { CountryContext } from '@/contexts/country.context'
 import { useContext, useState, useEffect } from 'react'
+import { CountryContext } from '@/contexts/country.context'
 import { ICountryProps } from '@/interfaces'
+import { Header } from '@/components/header'
+import { Title } from '@/components/title'
 import { Country } from '@/components/country'
 import { Answer } from '@/components/answer'
-import { Title } from '@/components/title'
-import { Header } from '@/components/header'
 
 export default function Practice() {
   const { countries } = useContext(CountryContext)

@@ -1,6 +1,6 @@
-import { Countries } from '@/components/countries'
 import { Header } from '@/components/header'
-import { SubHeader } from '@/components/sub-title'
+import { SubHeader } from '@/components/subtitle'
+import { Countries } from '@/components/countries'
 
 export default function Home() {
   return (
@@ -8,7 +8,6 @@ export default function Home() {
       <Header />
       <SubHeader />
       <Countries />
-      <main></main>
     </>
   )
 }

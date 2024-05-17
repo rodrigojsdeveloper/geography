@@ -7,9 +7,9 @@ import { EmptyMessage } from './empty-message'
 import { Arrows } from './arrows'
 import { Card } from './card'
 
-export const Countries = () => {
+export const CountriesFavorites = () => {
   const {
-    filteredCountries,
+    filteredFavorites,
     loaded,
     disabledNextPage,
     disabledPreviousPage,
@@ -19,17 +19,17 @@ export const Countries = () => {
     setDisabledPreviousPage,
     currentPage,
     countriesPerPage,
-    paginatedCountries,
+    paginatedFavorites,
   } = useContext(CountryContext)
 
   useEffect(() => {
     setDisabledPreviousPage(currentPage === 1)
     setDisabledNextPage(
-      currentPage * countriesPerPage >= filteredCountries.length,
+      currentPage * countriesPerPage >= filteredFavorites.length,
     )
   }, [
     currentPage,
-    filteredCountries,
+    filteredFavorites,
     countriesPerPage,
     setDisabledNextPage,
     setDisabledPreviousPage,
@@ -39,10 +39,10 @@ export const Countries = () => {
     <section className="w-full">
       {loaded ? (
         <LoaderCircle className="m-auto mt-40 flex size-11 w-full animate-spin justify-center text-green-200" />
-      ) : filteredCountries.length > 0 ? (
+      ) : filteredFavorites.length > 0 ? (
         <>
           <menu className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {paginatedCountries.map((country) => (
+            {paginatedFavorites.map((country) => (
               <Card country={country} key={country.name.common} />
             ))}
           </menu>
@@ -54,7 +54,7 @@ export const Countries = () => {
           />
         </>
       ) : (
-        <EmptyMessage>No country was found!</EmptyMessage>
+        <EmptyMessage>No favorite country found!</EmptyMessage>
       )}
     </section>
   )

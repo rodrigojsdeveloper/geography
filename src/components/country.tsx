@@ -1,7 +1,7 @@
 import Image from 'next/image'
+import { Earth, Home } from 'lucide-react'
 import { ICountry } from '@/interfaces'
 import { Dado } from './dado'
-import { Earth, Home } from 'lucide-react'
 
 export const Country = ({ country }: ICountry) => {
   return (

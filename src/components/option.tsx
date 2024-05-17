@@ -1,6 +1,6 @@
+import { useContext } from 'react'
 import { CountryContext } from '@/contexts/country.context'
 import { IOption } from '@/interfaces'
-import { useContext } from 'react'
 
 export const Option = ({ option }: IOption) => {
   const { setOption, setCloseSelect, handleSelect } = useContext(CountryContext)

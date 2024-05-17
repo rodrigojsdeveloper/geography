@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ICountriesPractice } from '../interfaces'
+import { ICountriesPractice } from '@/interfaces'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'

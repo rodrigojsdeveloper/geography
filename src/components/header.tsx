@@ -1,10 +1,10 @@
 'use client'
 
+import { useContext, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useContext, useState, useEffect } from 'react'
-import { CountryContext } from '@/contexts/country.context'
 import { Earth, Menu, X } from 'lucide-react'
+import { CountryContext } from '@/contexts/country.context'
 import { cn } from '@/utils/cn'
 
 export const Header = () => {
@@ -37,7 +37,7 @@ export const Header = () => {
           href="/practice"
           className={cn(
             'text-base font-medium duration-200 hover:text-green-200',
-            currentUrl === 'practice' ? 'text-green-200' : 'text-white-100',
+            currentUrl === '/practice' ? 'text-green-200' : 'text-white-100',
           )}
           onClick={() => setOpenModal(false)}
         >
@@ -47,7 +47,7 @@ export const Header = () => {
           href="/favorites"
           className={cn(
             'text-base font-medium duration-200 hover:text-green-200',
-            currentUrl === 'favorites' ? 'text-green-200' : 'text-white-100',
+            currentUrl === '/favorites' ? 'text-green-200' : 'text-white-100',
           )}
           onClick={() => setOpenModal(false)}
         >
@@ -87,7 +87,9 @@ export const Header = () => {
               href="/practice"
               className={cn(
                 'text-base font-medium duration-200 hover:text-green-200',
-                currentUrl === 'practice' ? 'text-green-200' : 'text-white-100',
+                currentUrl === '/practice'
+                  ? 'text-green-200'
+                  : 'text-white-100',
               )}
               onClick={() => setOpenModal(false)}
             >
@@ -97,7 +99,7 @@ export const Header = () => {
               href="/favorites"
               className={cn(
                 'text-base font-medium duration-200 hover:text-green-200',
-                currentUrl === 'favorites'
+                currentUrl === '/favorites'
                   ? 'text-green-200'
                   : 'text-white-100',
               )}

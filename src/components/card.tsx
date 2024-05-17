@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Heart } from 'lucide-react'
 import { CountryContext } from '@/contexts/country.context'
 import { ICountry } from '@/interfaces'
 import { cn } from '@/utils/cn'
-import Image from 'next/image'
 
 export const Card = ({ country }: ICountry) => {
   const pathname = usePathname()
