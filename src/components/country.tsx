@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { Earth, Home } from 'lucide-react'
-import { ICountry } from '@/interfaces'
+import { CardProps } from '@/interfaces'
 import { Dado } from './dado'
 
-export const Country = ({ country }: ICountry) => {
+export const Country = ({ country }: CardProps) => {
   return (
     <div className="w-full max-w-[29.375rem] rounded-md border border-solid border-gray-100">
       <figure className="h-fit w-full p-3">
@@ -12,7 +12,7 @@ export const Country = ({ country }: ICountry) => {
           alt={country?.name?.common}
           width={444}
           height={295.8}
-          className="h-fit w-full rounded-md"
+          className="no-select h-fit w-full rounded-md"
         />
       </figure>
 

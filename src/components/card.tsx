@@ -3,10 +3,10 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Heart } from 'lucide-react'
 import { CountryContext } from '@/contexts/country.context'
-import { ICountry } from '@/interfaces'
+import { CardProps } from '@/interfaces'
 import { cn } from '@/utils/cn'
 
-export const Card = ({ country }: ICountry) => {
+export const Card = ({ country }: CardProps) => {
   const pathname = usePathname()
   const [countryName, setCountryName] = useState<string>(pathname)
 
@@ -31,7 +31,7 @@ export const Card = ({ country }: ICountry) => {
           alt={country?.name.common}
           width={112}
           height={78}
-          className="h-full w-full rounded-md"
+          className="no-select h-full w-full rounded-md"
         />
       </figure>
 

@@ -1,6 +1,6 @@
-import { IDado } from '@/interfaces'
+import { DadoProps } from '@/interfaces'
 
-export const Dado = ({ title, description, Icon }: IDado) => {
+export const Dado = ({ title, description, Icon }: DadoProps) => {
   return (
     <div className="flex flex-row items-center gap-1.5">
       <Icon className="size-6 text-white" />

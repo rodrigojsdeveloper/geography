@@ -1,17 +1,11 @@
 import { LucideIcon } from 'lucide-react'
 
-export interface ILink {
-  href: string
-  activeLink: string
-  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-export interface ICountryProps {
+export interface CountryProps {
   name: {
     common: string
     official: string
     nativeName: {
-      por: {
+      [key: string]: {
         official: string
         common: string
       }
@@ -25,8 +19,12 @@ export interface ICountryProps {
   independent: boolean
   status: string
   unMember: boolean
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  currencies: any
+  currencies: {
+    [key: string]: {
+      name: string
+      symbol: string
+    }
+  }
   idd: {
     root: string
     suffixes: string[]
@@ -36,15 +34,24 @@ export interface ICountryProps {
   region: string
   subregion: string
   languages: {
-    por: string
+    [key: string]: string
   }
-  translations: unknown
+  translations: {
+    [key: string]: {
+      official: string
+      common: string
+    }
+  }
   latlng: number[]
   landlocked: boolean
   borders: string[]
   area: number
   demonyms: {
     eng: {
+      f: string
+      m: string
+    }
+    fra: {
       f: string
       m: string
     }
@@ -56,7 +63,7 @@ export interface ICountryProps {
   }
   population: number
   gini: {
-    '2019': number
+    [key: string]: number
   }
   fifa: string
   car: {
@@ -82,27 +89,26 @@ export interface ICountryProps {
     format: string
     regex: string
   }
-  favorite: boolean
 }
 
-export interface ICountry {
-  country: ICountryProps
+export interface CardProps {
+  country: CountryProps
 }
 
-export interface ICountriesPractice {
-  country: ICountryProps
-  countries: ICountryProps[]
-  sortedCountries: ICountryProps[]
-  setSortedCountries: React.Dispatch<React.SetStateAction<ICountryProps[]>>
-  setCountry: React.Dispatch<React.SetStateAction<ICountryProps>>
+export interface CountriesPracticeProps {
+  country: CountryProps
+  countries: CountryProps[]
+  sortedCountries: CountryProps[]
+  setSortedCountries: React.Dispatch<React.SetStateAction<CountryProps[]>>
+  setCountry: React.Dispatch<React.SetStateAction<CountryProps>>
 }
 
-export interface ICountryContextData {
-  countries: ICountryProps[]
-  filteredCountries: ICountryProps[]
-  filteredFavorites: ICountryProps[]
-  favorites: ICountryProps[]
-  setFavorites: React.Dispatch<React.SetStateAction<ICountryProps[]>>
+export interface CountryContextDataProps {
+  countries: CountryProps[]
+  filteredCountries: CountryProps[]
+  filteredFavorites: CountryProps[]
+  favorites: CountryProps[]
+  setFavorites: React.Dispatch<React.SetStateAction<CountryProps[]>>
   handleSearchCountry: (name: string) => void
   handleSelectContinents: (region: string) => void
   handleSelectContinentsFavorites: (continent: string) => void
@@ -114,61 +120,53 @@ export interface ICountryContextData {
   handleNextPage: () => void
   handlePreviousPage: () => void
   disabled: {
-    nextPage?: boolean
-    previousPage?: boolean
+    nextPage: boolean
+    previousPage: boolean
   }
   setDisabled: React.Dispatch<
     React.SetStateAction<{
-      nextPage?: boolean
-      previousPage?: boolean
+      nextPage: boolean
+      previousPage: boolean
     }>
   >
   currentPage: number
   countriesPerPage: number
-  paginatedCountries: ICountryProps[]
-  paginatedFavorites: ICountryProps[]
+  paginatedCountries: CountryProps[]
+  paginatedFavorites: CountryProps[]
   options: string[]
   option: string
   setOption: React.Dispatch<React.SetStateAction<string>>
   closeSelect: boolean
   setCloseSelect: React.Dispatch<React.SetStateAction<boolean>>
   handleSelect: (option: string) => void
-  country: ICountryProps
+  country: CountryProps
   fetchCountry: (name: string | string[]) => void
 }
 
-export interface IDado {
+export interface DadoProps {
   Icon: LucideIcon
   title: string
   description?: string | string[]
 }
 
-export interface ITitle {
-  title: string
-}
-
-export interface ISelect {
+export interface SelectProps {
   disabled?: boolean
 }
 
-export interface IEmptyMessage {
-  message: string
-}
-
-export interface IArrow {
+export interface ArrowProps {
   Icon: LucideIcon
   handleFunc: () => void
   disabled?: boolean
   ariaLabel: string
 }
 
-export interface IButtons {
-  disabledNextPage?: boolean
-  disabledPreviousPage?: boolean
+export interface ArrowsProps {
+  disabledNextPage: boolean
+  disabledPreviousPage: boolean
   handleNextPage: () => void
   handlePreviousPage: () => void
 }
 
-export interface IOption {
+export interface OptionProps {
   option: string
 }

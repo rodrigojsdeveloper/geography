@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ICountriesPractice } from '@/interfaces'
+import { CountriesPracticeProps } from '@/interfaces'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -11,7 +11,7 @@ export const Answer = ({
   setCountry,
   sortedCountries,
   setSortedCountries,
-}: ICountriesPractice) => {
+}: CountriesPracticeProps) => {
   const [count, setCount] = useState<number>(5)
   const [message, setMessage] = useState<boolean>(false)
   const [nextCountry, setNextCountry] = useState<boolean>(false)

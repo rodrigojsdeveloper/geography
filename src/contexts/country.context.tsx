@@ -1,10 +1,10 @@
 'use client'
 
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
-import { ICountryProps, ICountryContextData } from '@/interfaces'
+import { CountryProps, CountryContextDataProps } from '@/interfaces'
 import { api } from '@/services/api'
 
-export const CountryContext = createContext({} as ICountryContextData)
+export const CountryContext = createContext({} as CountryContextDataProps)
 
 export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const [openModal, setOpenModal] = useState<boolean>(false)
@@ -17,26 +17,22 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     countries: true,
     favorites: true,
   })
-  const [countries, setCountries] = useState<ICountryProps[]>([])
-  const [favorites, setFavorites] = useState<ICountryProps[]>([])
-  const [filteredCountries, setFilteredCountries] = useState<ICountryProps[]>(
-    [],
-  )
-  const [filteredFavorites, setFilteredFavorites] = useState<ICountryProps[]>(
-    [],
-  )
+  const [countries, setCountries] = useState<CountryProps[]>([])
+  const [favorites, setFavorites] = useState<CountryProps[]>([])
+  const [filteredCountries, setFilteredCountries] = useState<CountryProps[]>([])
+  const [filteredFavorites, setFilteredFavorites] = useState<CountryProps[]>([])
   const [favoriteCountryNames, setFavoriteCountryNames] = useState<string[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [disabled, setDisabled] = useState<{
-    nextPage?: boolean
-    previousPage?: boolean
+    nextPage: boolean
+    previousPage: boolean
   }>({
     nextPage: false,
     previousPage: true,
   })
   const [option, setOption] = useState<string>('Filter by region')
   const [closeSelect, setCloseSelect] = useState<boolean>(false)
-  const [country, setCountry] = useState<ICountryProps>({} as ICountryProps)
+  const [country, setCountry] = useState<CountryProps>({} as CountryProps)
 
   const options: string[] = [
     'All',
@@ -193,7 +189,7 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     }
   }, [])
 
-  const countryContextData: ICountryContextData = {
+  const countryContextData: CountryContextDataProps = {
     countries,
     filteredCountries,
     filteredFavorites,

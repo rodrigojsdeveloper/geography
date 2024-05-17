@@ -2,7 +2,7 @@
 
 import { useContext, useState, useEffect } from 'react'
 import { CountryContext } from '@/contexts/country.context'
-import { ICountryProps } from '@/interfaces'
+import { CountryProps } from '@/interfaces'
 import { Header } from '@/components/header'
 import { Title } from '@/components/title'
 import { Country } from '@/components/country'
@@ -11,9 +11,9 @@ import { Answer } from '@/components/answer'
 export default function Practice() {
   const { countries } = useContext(CountryContext)
 
-  const [sortedCountries, setSortedCountries] = useState<ICountryProps[]>([])
+  const [sortedCountries, setSortedCountries] = useState<CountryProps[]>([])
 
-  const [country, setCountry] = useState<ICountryProps>({} as ICountryProps)
+  const [country, setCountry] = useState<CountryProps>({} as CountryProps)
 
   useEffect(() => {
     for (let i = countries.length - 1; i > 0; i--) {

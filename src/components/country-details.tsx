@@ -1,7 +1,7 @@
 'use client'
 
 import { CountryContext } from '@/contexts/country.context'
-import { ICountry } from '../interfaces'
+import { CardProps } from '@/interfaces'
 import { useContext } from 'react'
 import { Dado } from './dado'
 import {
@@ -16,7 +16,7 @@ import {
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
-export const CountryDetails = ({ country }: ICountry) => {
+export const CountryDetails = ({ country }: CardProps) => {
   const { favoriteCountryNames, toggleFavoriteCountry } =
     useContext(CountryContext)
 
@@ -46,7 +46,7 @@ export const CountryDetails = ({ country }: ICountry) => {
           alt={name}
           width={597}
           height={418}
-          className="h-full w-full rounded-md"
+          className="no-select h-full w-full rounded-md"
         />
       </figure>
 

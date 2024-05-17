@@ -23,8 +23,8 @@ export const Countries = () => {
   useEffect(() => {
     setDisabled({
       nextPage: currentPage * countriesPerPage >= filteredCountries.length,
+      previousPage: currentPage === 1,
     })
-    setDisabled({ previousPage: currentPage === 1 })
   }, [
     currentPage,
     filteredCountries,

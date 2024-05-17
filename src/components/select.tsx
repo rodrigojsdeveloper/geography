@@ -1,31 +1,47 @@
 'use client'
 
-import { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { CountryContext } from '@/contexts/country.context'
-import { ISelect } from '@/interfaces'
+import { SelectProps } from '@/interfaces'
 import { Option } from './option'
 import { cn } from '@/utils/cn'
 
-export const Select = ({ disabled }: ISelect) => {
+export const Select = ({ disabled }: SelectProps) => {
   const { options, option, closeSelect, setCloseSelect } =
     useContext(CountryContext)
+  const selectRef = useRef<HTMLDivElement>(null)
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      selectRef.current &&
+      !selectRef.current.contains(event.target as Node)
+    ) {
+      setCloseSelect(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  })
+
+  const toggleSelect = () => {
+    if (!disabled) {
+      setCloseSelect(!closeSelect)
+    }
+  }
 
   return (
     <div
+      ref={selectRef}
       className={cn(
         'relative flex h-11 w-full max-w-40 flex-row items-center justify-between rounded-md bg-gray-200 py-2',
         !disabled ? 'cursor-pointer' : 'cursor-default opacity-60',
       )}
-      onClick={() => {
-        if (!disabled) {
-          setCloseSelect(true)
-
-          if (closeSelect) {
-            setCloseSelect(false)
-          }
-        }
-      }}
+      onClick={toggleSelect}
     >
       <label
         className={cn(
@@ -36,7 +52,7 @@ export const Select = ({ disabled }: ISelect) => {
         {option}
       </label>
       {closeSelect && (
-        <ul className="shadow-def absolute top-12 z-10 w-full rounded-md bg-gray-200">
+        <ul className="absolute top-12 z-10 w-full rounded-md bg-gray-200">
           {options.map((option) => (
             <Option key={option} option={option} />
           ))}

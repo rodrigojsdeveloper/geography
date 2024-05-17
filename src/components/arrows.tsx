@@ -1,4 +1,4 @@
-import { IButtons } from '@/interfaces'
+import { ArrowsProps } from '@/interfaces'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Arrow } from './arrow'
 
@@ -7,7 +7,7 @@ export const Arrows = ({
   disabledPreviousPage,
   handleNextPage,
   handlePreviousPage,
-}: IButtons) => {
+}: ArrowsProps) => {
   return (
     <section className="mx-auto mt-11 flex w-full max-w-28 items-center justify-between">
       <Arrow

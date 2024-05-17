@@ -21,6 +21,7 @@
   text-rendering: optimizeLegibility;
 
   -webkit-tap-highlight-color: transparent;
+  scrollbar-color: #f2f2f2 transparent;
 }
 
 html {

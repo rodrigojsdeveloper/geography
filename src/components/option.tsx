@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { CountryContext } from '@/contexts/country.context'
-import { IOption } from '@/interfaces'
+import { OptionProps } from '@/interfaces'
 
-export const Option = ({ option }: IOption) => {
+export const Option = ({ option }: OptionProps) => {
   const { setOption, setCloseSelect, handleSelect } = useContext(CountryContext)
 
   return (

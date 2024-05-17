@@ -1,6 +1,11 @@
-import { IArrow } from '@/interfaces'
+import { ArrowProps } from '@/interfaces'
 
-export const Arrow = ({ Icon, handleFunc, disabled, ariaLabel }: IArrow) => {
+export const Arrow = ({
+  Icon,
+  handleFunc,
+  disabled,
+  ariaLabel,
+}: ArrowProps) => {
   return (
     <button
       disabled={disabled}

@@ -23,8 +23,8 @@ export const CountriesFavorites = () => {
   useEffect(() => {
     setDisabled({
       nextPage: currentPage * countriesPerPage >= filteredFavorites.length,
+      previousPage: currentPage === 1,
     })
-    setDisabled({ previousPage: currentPage === 1 })
   }, [
     currentPage,
     filteredFavorites,
@@ -45,14 +45,12 @@ export const CountriesFavorites = () => {
               <Card country={country} key={country.name.common} />
             ))}
           </menu>
-          {filteredFavorites.length >= 66 && (
-            <Arrows
-              disabledNextPage={disabled?.nextPage}
-              disabledPreviousPage={disabled?.previousPage}
-              handleNextPage={handleNextPage}
-              handlePreviousPage={handlePreviousPage}
-            />
-          )}
+          <Arrows
+            disabledNextPage={disabled?.nextPage}
+            disabledPreviousPage={disabled?.previousPage}
+            handleNextPage={handleNextPage}
+            handlePreviousPage={handlePreviousPage}
+          />
         </>
       ) : (
         <EmptyMessage>No favorite country found!</EmptyMessage>
