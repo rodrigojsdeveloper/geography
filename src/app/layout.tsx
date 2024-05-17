@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import { Providers } from '@/contexts'
 import './globals.css'
 
 const inter = Poppins({
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
