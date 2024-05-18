@@ -12,13 +12,13 @@ export default function NotFound() {
       <h1 className="text-primary text-5xl font-semibold leading-none">404</h1>
       <div className="flex flex-col gap-y-2">
         <h2>Page is not found</h2>
-        <p className="opacity-50">
+        <p className="opacity-70">
           The route you&apos;re trying to access doesn&apos;t exist.
         </p>
       </div>
       <div>
         <Link href="/" className="flex w-fit flex-row items-center gap-2">
-          <MoveLeft size={12} strokeWidth={2} />
+          <MoveLeft className="size-3 stroke-2" />
           Back to home
         </Link>
       </div>

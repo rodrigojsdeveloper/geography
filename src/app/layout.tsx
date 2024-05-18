@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import { Providers } from '@/contexts'
 import { cn } from '@/utils/cn'
-import './globals.css'
 import { Toaster } from 'sonner'
+import './globals.css'
 
-const inter = Poppins({
+const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
 })
 
 export const metadata: Metadata = {
@@ -25,8 +26,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 py-7',
-          inter.className,
+          'poppins mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 py-7',
+          poppins.className,
         )}
       >
         <Providers>
