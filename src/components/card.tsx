@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Heart } from 'lucide-react'
 import { CountryContext } from '@/contexts/country.context'
@@ -25,7 +26,7 @@ export const Card = ({ country }: CardProps) => {
 
   return (
     <li className="relative flex min-h-24 w-full cursor-pointer rounded-md border border-solid border-gray-100 bg-gray-300 duration-300">
-      <a href={`country/${countryName}`} className="flex w-full flex-row">
+      <Link href={`country/${countryName}`} className="flex w-full flex-row">
         <figure className="flex w-full max-w-32 items-center p-2">
           <Image
             src={country?.flags.png}
@@ -44,7 +45,7 @@ export const Card = ({ country }: CardProps) => {
             <p className="text-xs font-bold opacity-60">{country?.region}</p>
           </div>
         </section>
-      </a>
+      </Link>
 
       <div className="absolute right-3 top-2.5 h-fit cursor-pointer rounded-full bg-gray-200 p-1.5 hover:bg-gray-100">
         <Heart
