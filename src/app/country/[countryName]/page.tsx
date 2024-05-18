@@ -22,7 +22,7 @@ export default function CountryDetailsPage() {
       {loaded.country ? (
         <LoaderCircle className="m-auto mt-40 flex size-11 w-full animate-spin justify-center text-green-200" />
       ) : (
-        <CountryDetails country={country} />
+        country && country.name && <CountryDetails country={country} />
       )}
     </>
   )

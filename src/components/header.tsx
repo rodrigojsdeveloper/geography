@@ -46,10 +46,10 @@ export const Header = () => {
   return (
     <header className="flex w-full items-center justify-between">
       <Link href="/" aria-label="world">
-        <Earth className="size-9 text-green-200" />
+        <Earth className="size-8 text-green-200" />
       </Link>
 
-      <nav className="hidden flex-row items-center justify-between gap-6 sm:flex">
+      <nav className="hidden flex-row items-center justify-between gap-10 sm:flex">
         {LINKS.map(({ name, href }, index) => (
           <Link
             key={`${name}-${index}`}

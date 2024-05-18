@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'poppins mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 py-7',
+          'poppins mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 pb-12 pt-5',
           poppins.className,
         )}
       >

@@ -180,6 +180,14 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     }
   }, [])
 
+  useEffect(() => {
+    const favoriteCountries = countries.filter((country) =>
+      favoriteCountryNames.includes(country.name.common),
+    )
+    setFavorites(favoriteCountries)
+    setFilteredFavorites(favoriteCountries)
+  }, [favoriteCountryNames, countries])
+
   const countryContextData: CountryContextDataProps = {
     countries,
     filteredCountries,
