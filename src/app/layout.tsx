@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import { Providers } from '@/contexts'
@@ -17,16 +18,12 @@ export const metadata: Metadata = {
     'Geography, where users can explore and have fun with countries around the world.',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body
         className={cn(
-          'poppins mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 pb-12 pt-5',
+          'mx-auto flex w-full max-w-7xl flex-col gap-12 scroll-smooth px-4 pb-12 pt-5 font-poppins antialiased',
           poppins.className,
         )}
       >
