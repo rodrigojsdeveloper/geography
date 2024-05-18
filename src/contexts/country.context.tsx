@@ -35,16 +35,6 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   const [closeSelect, setCloseSelect] = useState<boolean>(false)
   const [country, setCountry] = useState<CountryProps>({} as CountryProps)
 
-  const options: string[] = [
-    'All',
-    'Africa',
-    'Americas',
-    'Antarctic',
-    'Asia',
-    'Europe',
-    'Oceania',
-  ]
-
   const fetchCountries = () => {
     setLoaded({ countries: true })
 
@@ -212,7 +202,6 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
     countriesPerPage,
     paginatedCountries,
     paginatedFavorites,
-    options,
     option,
     setOption,
     closeSelect,

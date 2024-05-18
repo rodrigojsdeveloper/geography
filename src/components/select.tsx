@@ -6,10 +6,10 @@ import { CountryContext } from '@/contexts/country.context'
 import { SelectProps } from '@/interfaces'
 import { Option } from './option'
 import { cn } from '@/utils/cn'
+import { OPTIONS } from '@/utils/constants'
 
 export const Select = ({ disabled }: SelectProps) => {
-  const { options, option, closeSelect, setCloseSelect } =
-    useContext(CountryContext)
+  const { option, closeSelect, setCloseSelect } = useContext(CountryContext)
   const selectRef = useRef<HTMLDivElement>(null)
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -53,7 +53,7 @@ export const Select = ({ disabled }: SelectProps) => {
       </label>
       {closeSelect && (
         <ul className="absolute top-12 z-10 w-full rounded-md bg-gray-200">
-          {options.map((option) => (
+          {OPTIONS.map((option) => (
             <Option key={option} option={option} />
           ))}
         </ul>

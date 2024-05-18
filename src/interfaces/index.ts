@@ -133,7 +133,6 @@ export interface CountryContextDataProps {
   countriesPerPage: number
   paginatedCountries: CountryProps[]
   paginatedFavorites: CountryProps[]
-  options: string[]
   option: string
   setOption: React.Dispatch<React.SetStateAction<string>>
   closeSelect: boolean

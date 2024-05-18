@@ -16,12 +16,10 @@ export default function NotFound() {
           The route you&apos;re trying to access doesn&apos;t exist.
         </p>
       </div>
-      <div>
-        <Link href="/" className="flex w-fit flex-row items-center gap-2">
-          <MoveLeft className="size-3 stroke-2" />
-          Back to home
-        </Link>
-      </div>
+      <Link href="/" className="flex w-fit flex-row items-center gap-2">
+        <MoveLeft className="size-3 stroke-2" />
+        Back to home
+      </Link>
     </main>
   )
 }
