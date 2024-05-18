@@ -12,6 +12,8 @@ import {
   Home,
   LandPlot,
   UsersRound,
+  Phone,
+  Clock,
 } from 'lucide-react'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
@@ -26,8 +28,43 @@ export const CountryDetails = ({ country }: CardProps) => {
     toggleFavoriteCountry(country.name.common)
   }
 
+  const details = [
+    { Icon: Home, title: 'Capital', description: country.capital },
+    {
+      Icon: Coins,
+      title: 'Currency',
+      description: country.currencies[Object.keys(country.currencies)[0]].name,
+    },
+    {
+      Icon: LandPlot,
+      title: 'Area',
+      description: `${country.area.toLocaleString('pt-BR')} Km²`,
+    },
+    {
+      Icon: UsersRound,
+      title: 'Population',
+      description: country.population.toLocaleString('pt-BR'),
+    },
+    {
+      Icon: Earth,
+      title: 'Continent',
+      description: country.continents.join(', '),
+    },
+    {
+      Icon: Flag,
+      title: 'Independent',
+      description: country.independent ? 'Yes' : 'No',
+    },
+    {
+      Icon: Phone,
+      title: 'Phone Code',
+      description: `${country.idd.root}${country.idd.suffixes[0]}`,
+    },
+    { Icon: Clock, title: 'Timezone', description: country.timezones[0] },
+  ]
+
   return (
-    <div className="mx-auto mt-16 flex h-fit w-full max-w-md flex-col rounded-md border border-solid border-gray-100 bg-gray-300 sm:h-72 md:max-w-[50rem] md:flex-row">
+    <div className="mx-auto mt-16 flex min-h-72 w-full max-w-md flex-col rounded-md border border-solid border-gray-100 bg-gray-300 md:max-w-[50rem] md:flex-row">
       <figure className="w-full p-3">
         <Image
           src={country.flags.png}
@@ -38,11 +75,10 @@ export const CountryDetails = ({ country }: CardProps) => {
         />
       </figure>
 
-      <div className="flex w-full max-w-none flex-col rounded-e-md border-l-0 border-t border-solid border-gray-100 bg-gray-200 p-2.5 sm:p-4 md:max-w-xs md:border-none">
+      <div className="flex w-full max-w-none flex-col rounded-e-md border-l-0 border-t border-solid border-gray-100 bg-gray-200 p-2.5 sm:p-4 md:max-w-sm md:border-none">
         <div className="flex w-full justify-between pb-8">
           <div className="flex w-full flex-col">
             <h2 className="text-lg font-bold">{country.name.common}</h2>
-
             <p className="text-base font-bold opacity-60">{country.region}</p>
           </div>
 
@@ -57,43 +93,16 @@ export const CountryDetails = ({ country }: CardProps) => {
           </div>
         </div>
 
-        <section className="flex flex-col justify-between gap-5 sm:flex-row">
-          <div className="flex flex-col gap-5">
-            <Dado Icon={Home} title="Capital" description={country.capital} />
+        <ul className="grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:flex-row sm:gap-x-36 md:gap-x-12">
+          {details.map((detail, index) => (
             <Dado
-              Icon={LandPlot}
-              title="Area"
-              description={`${country.area.toLocaleString('pt-BR')} Km²`}
+              key={index}
+              Icon={detail.Icon}
+              title={detail.title}
+              description={detail.description}
             />
-            <Dado
-              Icon={Earth}
-              title="Continent"
-              description={country.continents.join(', ')}
-            />
-          </div>
-
-          <div className="flex flex-col gap-5">
-            <Dado
-              Icon={Coins}
-              title="Currency"
-              description={
-                country.currencies
-                  ? country.currencies[Object.keys(country.currencies)[0]].name
-                  : 'Unknown'
-              }
-            />
-            <Dado
-              Icon={UsersRound}
-              title="Population"
-              description={country.population.toLocaleString('pt-BR')}
-            />
-            <Dado
-              Icon={Flag}
-              title="Independent"
-              description={country.independent ? 'Yes' : 'No'}
-            />
-          </div>
-        </section>
+          ))}
+        </ul>
       </div>
     </div>
   )
