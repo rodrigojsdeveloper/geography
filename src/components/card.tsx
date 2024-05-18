@@ -24,7 +24,7 @@ export const Card = ({ country }: CardProps) => {
   }, [country.name.common])
 
   return (
-    <div className="flex h-24 w-full cursor-pointer rounded-md border border-solid border-gray-100 bg-gray-300 duration-300">
+    <li className="flex h-24 w-full cursor-pointer rounded-md border border-solid border-gray-100 bg-gray-300 duration-300">
       <figure className="w-full max-w-32 p-2">
         <Image
           src={country?.flags.png}
@@ -56,6 +56,6 @@ export const Card = ({ country }: CardProps) => {
           />
         </div>
       </div>
-    </div>
+    </li>
   )
 }
