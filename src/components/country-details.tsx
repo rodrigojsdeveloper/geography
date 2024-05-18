@@ -64,7 +64,7 @@ export const CountryDetails = ({ country }: CardProps) => {
   ]
 
   return (
-    <div className="mx-auto mt-16 flex min-h-72 w-full max-w-md flex-col rounded-md border border-solid border-gray-100 bg-gray-300 md:max-w-[50rem] md:flex-row">
+    <div className="mx-auto mt-16 flex min-h-72 w-full max-w-md flex-col rounded-md border border-solid border-gray-100 bg-gray-300 md:max-w-[55rem] md:flex-row">
       <figure className="w-full p-3">
         <Image
           src={country.flags.png}
@@ -93,7 +93,7 @@ export const CountryDetails = ({ country }: CardProps) => {
           </div>
         </div>
 
-        <ul className="grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:flex-row sm:gap-x-36 md:gap-x-12">
+        <ul className="grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:gap-x-36 md:gap-x-12">
           {details.map((detail, index) => (
             <Dado
               key={index}
