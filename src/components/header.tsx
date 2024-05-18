@@ -76,7 +76,7 @@ export const Header = () => {
       {openModal && (
         <div
           ref={modalRef}
-          className="fixed inset-x-0 top-0 z-10 flex w-full flex-col bg-black/50 backdrop-blur-sm"
+          className="fixed inset-x-0 top-0 z-10 flex w-full flex-col border-b border-solid border-gray-100 bg-gray-300 sm:hidden"
         >
           <X
             size={25}
