@@ -23,7 +23,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body
         className={cn(
-          'mx-auto flex w-full max-w-7xl flex-col gap-12 scroll-smooth px-4 pb-12 pt-5 font-poppins antialiased',
+          'mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 pb-12 pt-5 font-poppins antialiased',
           poppins.className,
         )}
       >

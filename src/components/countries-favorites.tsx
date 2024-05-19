@@ -1,11 +1,11 @@
 'use client'
 
 import { useContext, useEffect } from 'react'
-import { LoaderCircle } from 'lucide-react'
 import { CountryContext } from '@/contexts/country.context'
 import { EmptyMessage } from './empty-message'
 import { Arrows } from './arrows'
 import { Card } from './card'
+import { Loading } from './loading'
 
 export const CountriesFavorites = () => {
   const {
@@ -37,7 +37,7 @@ export const CountriesFavorites = () => {
   return (
     <section className="w-full">
       {loaded.favorites ? (
-        <LoaderCircle className="m-auto mt-40 flex size-11 w-full animate-spin justify-center text-green-200" />
+        <Loading />
       ) : filteredFavorites.length > 0 ? (
         <>
           <menu className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">

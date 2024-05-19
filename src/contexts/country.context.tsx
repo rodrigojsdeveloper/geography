@@ -68,6 +68,7 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
   }
 
   const handleSelectContinents = (region: string) => {
+    setLoaded({ countries: true })
     if (region === 'All') {
       api
         .get('/all')
@@ -79,6 +80,7 @@ export const CountryContextProvider = ({ children }: PropsWithChildren) => {
         .then((res) => setFilteredCountries(res.data))
         .catch(() => toast.error('Failed to fetch countries by region.'))
     }
+    setLoaded({ countries: false })
   }
 
   const handleSelectContinentsFavorites = (continent: string) => {

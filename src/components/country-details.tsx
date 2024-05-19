@@ -64,7 +64,7 @@ export const CountryDetails = ({ country }: CardProps) => {
   ]
 
   return (
-    <div className="mx-auto mt-16 flex min-h-72 w-full max-w-md flex-col rounded-md border border-solid border-gray-100 bg-gray-300 md:max-w-[55rem] md:flex-row">
+    <div className="mx-auto mt-16 flex w-full max-w-md flex-col rounded-md border border-solid border-gray-100 bg-gray-300 md:h-[22rem] md:max-w-[55rem] md:flex-row">
       <figure className="w-full p-3">
         <Image
           src={country.flags.png}
